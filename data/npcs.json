@@ -1,0 +1,128 @@
+[
+  {
+    "id": "player_characters",
+    "name": "The Party (PCs)",
+    "type": "npc",
+    "category": "Player Characters",
+    "contentType": "html",
+    "contentFile": "content/player_characters.html",
+    "visibility": "player",
+    "related": [
+      "session_1",
+      "session_2",
+      "session_3"
+    ]
+  },
+  {
+    "id": "ellery_voss",
+    "name": "Dr. Ellery Voss",
+    "type": "npc",
+    "category": "Faculty",
+    "contentType": "html",
+    "contentFile": "content/ellery_voss.html",
+    "visibility": "player",
+    "related": [
+      "fail_chamber",
+      "jungle_site",
+      "aldric_voss",
+      "teleportation_network",
+      "session_3"
+    ]
+  },
+  {
+    "id": "lenny_goldvein",
+    "name": "Lenny Goldvein",
+    "type": "npc",
+    "category": "Faculty",
+    "contentType": "html",
+    "contentFile": "content/lenny_goldvein.html",
+    "visibility": "player",
+    "related": [
+      "underground_storage",
+      "session_1"
+    ]
+  },
+  {
+    "id": "oswald_crumb",
+    "name": "Professor Oswald Crumb",
+    "type": "npc",
+    "category": "Faculty",
+    "contentType": "html",
+    "contentFile": "content/oswald_crumb.html",
+    "visibility": "player",
+    "related": [
+      "wizards",
+      "nether_mountains",
+      "thornwick_consortium"
+    ]
+  },
+  {
+    "id": "aldric_voss",
+    "name": "Aldric Voss",
+    "type": "npc",
+    "category": "Founders",
+    "contentType": "html",
+    "contentFile": "content/aldric_voss.html",
+    "visibility": "dm-only",
+    "related": [
+      "memorial_garden",
+      "voss_imprint",
+      "ellery_voss",
+      "secret_society"
+    ]
+  },
+  {
+    "id": "isolde_orath",
+    "name": "Isolde Orath",
+    "type": "npc",
+    "category": "Founders",
+    "contentType": "html",
+    "contentFile": "content/isolde_orath.html",
+    "visibility": "dm-only",
+    "related": [
+      "orath_charter",
+      "old_library",
+      "secret_society"
+    ]
+  },
+  {
+    "id": "brennan_ashcroft",
+    "name": "Brennan Ashcroft",
+    "type": "npc",
+    "category": "Founders",
+    "contentType": "html",
+    "contentFile": "content/brennan_ashcroft.html",
+    "visibility": "dm-only",
+    "related": [
+      "secret_society",
+      "old_library"
+    ]
+  },
+  {
+    "id": "maren_duskhollow",
+    "name": "Maren Duskhollow",
+    "type": "npc",
+    "category": "Founders",
+    "contentType": "html",
+    "contentFile": "content/maren_duskhollow.html",
+    "visibility": "dm-only",
+    "related": [
+      "owlbear_cave",
+      "kass",
+      "rangers"
+    ]
+  },
+  {
+    "id": "the_upperclassmen",
+    "name": "The Upper-Classmen",
+    "type": "npc",
+    "category": "Students",
+    "contentType": "html",
+    "contentFile": "content/the_upperclassmen.html",
+    "visibility": "dm-only",
+    "related": [
+      "owlbear_cave",
+      "session_4"
+    ]
+  }
+]

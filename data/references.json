@@ -1,0 +1,35 @@
+[
+  {
+    "id": "campaign_overview",
+    "name": "Campaign Overview",
+    "type": "reference",
+    "category": "Campaign",
+    "contentType": "html",
+    "contentFile": "content/campaign_overview.html",
+    "visibility": "player",
+    "related": [
+      "session_1",
+      "session_2",
+      "session_3",
+      "session_4"
+    ]
+  },
+  {
+    "id": "campus_overview",
+    "name": "Academy Overview",
+    "type": "reference",
+    "category": "Campaign",
+    "contentType": "html",
+    "contentFile": "content/campus_overview.html",
+    "visibility": "player"
+  },
+  {
+    "id": "dnd_resources",
+    "name": "D&D 5e Resources",
+    "type": "reference",
+    "category": "Campaign",
+    "contentType": "html",
+    "contentFile": "content/dnd_resources.html",
+    "visibility": "player"
+  }
+]

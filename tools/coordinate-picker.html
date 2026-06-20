@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coordinate Picker — F.U.C.K.S. Academy</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background: #1a1714;
+      color: #e8e0d0;
+      display: flex;
+      min-height: 100vh;
+    }
+    /* Left: the image. Right: the captured points. */
+    #stage {
+      flex: 1 1 auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+    #toolbar { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
+    h1 { font-size: 1.1rem; margin: 0 1rem 0 0; letter-spacing: 0.05em; }
+    .hint { color: #b8ac96; font-size: 0.85rem; }
+    #img-wrap {
+      position: relative;
+      align-self: flex-start;
+      max-width: 100%;
+      line-height: 0;
+      cursor: crosshair;
+    }
+    #pick-img { max-width: 100%; height: auto; display: block; border: 1px solid #3a3128; }
+    .marker {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: rgba(201,138,58,0.9);
+      border: 2px solid #fff;
+      pointer-events: none;
+    }
+    .marker .tag {
+      position: absolute;
+      left: 50%; top: 130%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 11px;
+      background: rgba(20,16,12,0.9);
+      padding: 1px 5px;
+      border-radius: 3px;
+      border: 1px solid #3a3128;
+    }
+    aside {
+      width: 380px;
+      background: #221d18;
+      border-left: 1px solid #3a3128;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      overflow-y: auto;
+      max-height: 100vh;
+    }
+    aside h2 { font-size: 1rem; margin: 0; letter-spacing: 0.05em; }
+    #readout {
+      font-family: Consolas, monospace;
+      background: #2c251e;
+      border: 1px solid #3a3128;
+      padding: 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+    th, td { text-align: left; padding: 3px 4px; border-bottom: 1px solid #3a3128; }
+    th { color: #b8ac96; font-weight: normal; }
+    td input {
+      width: 100%;
+      background: #1a1714;
+      color: #e8e0d0;
+      border: 1px solid #3a3128;
+      padding: 2px 4px;
+      font-family: inherit;
+    }
+    td.coord { font-family: Consolas, monospace; white-space: nowrap; color: #c98a3a; }
+    button {
+      font-family: inherit;
+      background: #2c251e;
+      color: #e8e0d0;
+      border: 1px solid #3a3128;
+      padding: 0.4rem 0.7rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover { border-color: #b8ac96; }
+    .row-del { padding: 0 6px; color: #d99; }
+    textarea {
+      width: 100%; height: 180px;
+      background: #1a1714; color: #e8e0d0;
+      border: 1px solid #3a3128; border-radius: 4px;
+      font-family: Consolas, monospace; font-size: 0.8rem;
+      padding: 0.5rem;
+    }
+    .btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    label.file {
+      display: inline-block;
+    }
+    input[type=file] { display: none; }
+  </style>
+</head>
+<body>
+  <main id="stage">
+    <div id="toolbar">
+      <h1>Coordinate Picker</h1>
+      <button type="button" id="load-btn">Load a different image…</button>
+      <input type="file" id="file-input" accept="image/*" />
+      <span class="hint">Click anywhere on the map to capture an x/y percentage.</span>
+    </div>
+    <div id="img-wrap">
+      <img id="pick-img" src="../assets/FUCKS_map.png" alt="map" />
+    </div>
+  </main>
+
+  <aside>
+    <h2>Last click</h2>
+    <div id="readout">x: —, y: —</div>
+
+    <h2>Captured points</h2>
+    <div class="hint">Fill in <code>id</code> / <code>name</code>, then copy the JSON.</div>
+    <table>
+      <thead>
+        <tr><th>id</th><th>name</th><th>x</th><th>y</th><th></th></tr>
+      </thead>
+      <tbody id="rows"></tbody>
+    </table>
+
+    <div class="btn-row">
+      <button type="button" id="copy-json">Copy JSON</button>
+      <button type="button" id="clear-all">Clear all</button>
+    </div>
+    <textarea id="json-out" readonly placeholder="JSON for captured points appears here…"></textarea>
+  </aside>
+
+  <script>
+    const img = document.getElementById("pick-img");
+    const wrap = document.getElementById("img-wrap");
+    const readout = document.getElementById("readout");
+    const rows = document.getElementById("rows");
+    const jsonOut = document.getElementById("json-out");
+    const fileInput = document.getElementById("file-input");
+
+    let points = []; // {id, name, x, y, marker}
+
+    function refreshJSON() {
+      const data = points.map((p) => ({
+        id: p.id || "",
+        name: p.name || "",
+        x: p.x,
+        y: p.y,
+      }));
+      jsonOut.value = JSON.stringify(data, null, 2);
+    }
+
+    function placeMarker(p) {
+      const m = document.createElement("div");
+      m.className = "marker";
+      m.style.left = p.x + "%";
+      m.style.top = p.y + "%";
+      m.innerHTML = `<span class="tag"></span>`;
+      wrap.appendChild(m);
+      p.marker = m;
+      updateTag(p);
+    }
+
+    function updateTag(p) {
+      if (p.marker) p.marker.querySelector(".tag").textContent = p.name || p.id || `${p.x}, ${p.y}`;
+    }
+
+    function addRow(p) {
+      const tr = document.createElement("tr");
+      tr.innerHTML = `
+        <td><input class="i-id" placeholder="founders_statue" /></td>
+        <td><input class="i-name" placeholder="Founder's Statue" /></td>
+        <td class="coord">${p.x}</td>
+        <td class="coord">${p.y}</td>
+        <td><button class="row-del" title="Remove">&times;</button></td>`;
+      tr.querySelector(".i-id").addEventListener("input", (e) => { p.id = e.target.value.trim(); updateTag(p); refreshJSON(); });
+      tr.querySelector(".i-name").addEventListener("input", (e) => { p.name = e.target.value.trim(); updateTag(p); refreshJSON(); });
+      tr.querySelector(".row-del").addEventListener("click", () => {
+        p.marker?.remove();
+        tr.remove();
+        points = points.filter((q) => q !== p);
+        refreshJSON();
+      });
+      rows.appendChild(tr);
+    }
+
+    wrap.addEventListener("click", (e) => {
+      const rect = img.getBoundingClientRect();
+      const x = +(((e.clientX - rect.left) / rect.width) * 100).toFixed(1);
+      const y = +(((e.clientY - rect.top) / rect.height) * 100).toFixed(1);
+      readout.textContent = `x: ${x}, y: ${y}`;
+      const p = { id: "", name: "", x, y, marker: null };
+      points.push(p);
+      placeMarker(p);
+      addRow(p);
+      refreshJSON();
+    });
+
+    document.getElementById("copy-json").addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(jsonOut.value); } catch (_) {}
+      jsonOut.select();
+    });
+    document.getElementById("clear-all").addEventListener("click", () => {
+      points.forEach((p) => p.marker?.remove());
+      points = [];
+      rows.innerHTML = "";
+      refreshJSON();
+      readout.textContent = "x: —, y: —";
+    });
+
+    // Load a different image (handy for any map).
+    document.getElementById("load-btn").addEventListener("click", () => fileInput.click());
+    fileInput.addEventListener("change", () => {
+      const f = fileInput.files && fileInput.files[0];
+      if (f) img.src = URL.createObjectURL(f);
+    });
+  </script>
+</body>
+</html>

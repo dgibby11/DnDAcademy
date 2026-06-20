@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>F.U.C.K.S. Academy — Campus Map</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header id="topbar">
+    <div class="bar-left">
+      <button id="open-menu" type="button">☰ Index</button>
+      <div class="title-block">
+        <h1>F.U.C.K.S. Academy</h1>
+        <p class="subtitle">Faculty of Unrestricted Combat, Kinetics &amp; Sorcery</p>
+      </div>
+    </div>
+    <div class="bar-right">
+      <span class="file-tag">Campus Dossier</span>
+      <button id="dm-toggle" type="button" aria-pressed="false">DM Mode: OFF</button>
+    </div>
+  </header>
+
+  <p id="load-error" hidden>
+    Couldn't load location data. Launch the app via <strong>start-map.bat</strong>
+    (or a local server) rather than opening the file directly — see the README.
+  </p>
+
+  <main id="map-stage">
+    <!-- The map and its hotspot overlay share this wrapper so hotspots
+         can be positioned as a percentage of the image box. -->
+    <div id="map-frame">
+      <img id="campus-map" src="assets/FUCKS_map.png" alt="F.U.C.K.S. Academy campus map" />
+      <div id="hotspot-layer"><!-- hotspots injected by map.js --></div>
+    </div>
+  </main>
+
+  <!-- Slide-out Locations panel -->
+  <div id="panel-backdrop"></div>
+  <aside id="locations-panel" aria-hidden="true" aria-label="Locations">
+    <header id="panel-header">
+      <h2>Index</h2>
+      <button id="close-menu" type="button" aria-label="Close">&times;</button>
+    </header>
+    <div id="locations-list"><!-- grouped list injected by menu.js --></div>
+  </aside>
+
+  <script src="js/data.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

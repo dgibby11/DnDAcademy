@@ -1,0 +1,63 @@
+[
+  {
+    "id": "session_1",
+    "name": "Session 1 - The Basement Incident",
+    "type": "session",
+    "category": "Completed",
+    "contentType": "html",
+    "contentFile": "content/session_1.html",
+    "visibility": "player",
+    "related": [
+      "underground_storage",
+      "bodak",
+      "mimics",
+      "magical_gauntlet",
+      "lenny_goldvein"
+    ]
+  },
+  {
+    "id": "session_2",
+    "name": "Session 2 - The Ninth Thesis",
+    "type": "session",
+    "category": "Completed",
+    "contentType": "html",
+    "contentFile": "content/session_2.html",
+    "visibility": "player",
+    "related": [
+      "founders_statue",
+      "secret_society",
+      "ninth_thesis"
+    ]
+  },
+  {
+    "id": "session_3",
+    "name": "Session 3 - The Dinosaur Breach",
+    "type": "session",
+    "category": "Completed",
+    "contentType": "html",
+    "contentFile": "content/session_3.html",
+    "visibility": "player",
+    "related": [
+      "fail_chamber",
+      "jungle_site",
+      "sunken_fang_spear",
+      "dinosaurs",
+      "ellery_voss"
+    ]
+  },
+  {
+    "id": "session_4",
+    "name": "Session 4 - The Owlbear Prank",
+    "type": "session",
+    "category": "Planning",
+    "contentType": "html",
+    "contentFile": "content/session_4.html",
+    "visibility": "dm-only",
+    "related": [
+      "owlbear_cave",
+      "kass",
+      "rangers",
+      "the_upperclassmen"
+    ]
+  }
+]

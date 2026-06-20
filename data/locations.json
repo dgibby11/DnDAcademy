@@ -1,0 +1,324 @@
+[
+  {
+    "id": "fighters",
+    "name": "Fighters Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 35.0,
+    "y": 11.0,
+    "w": 11.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/fighters.html",
+    "visibility": "player"
+  },
+  {
+    "id": "barbarians",
+    "name": "Barbarians Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 21.0,
+    "y": 30.2,
+    "w": 14.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/barbarians.html",
+    "visibility": "player"
+  },
+  {
+    "id": "rangers",
+    "name": "Rangers Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 11.3,
+    "y": 61.9,
+    "w": 11.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/rangers.html",
+    "visibility": "player",
+    "related": [
+      "owlbear_cave",
+      "kass",
+      "maren_duskhollow"
+    ]
+  },
+  {
+    "id": "clerics",
+    "name": "Clerics Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 16.3,
+    "y": 81.4,
+    "w": 11.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/clerics.html",
+    "visibility": "player"
+  },
+  {
+    "id": "monks",
+    "name": "Monks Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 87.2,
+    "y": 65.9,
+    "w": 9.5,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/monks.html",
+    "visibility": "player"
+  },
+  {
+    "id": "paladins",
+    "name": "Paladins Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 66.7,
+    "y": 82.0,
+    "w": 11.5,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/paladins.html",
+    "visibility": "player"
+  },
+  {
+    "id": "rogues",
+    "name": "Rogues Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 89.0,
+    "y": 45.8,
+    "w": 9.5,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/rogues.html",
+    "visibility": "player"
+  },
+  {
+    "id": "artificers",
+    "name": "Artificers Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 43.3,
+    "y": 80.2,
+    "w": 14.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/artificers.html",
+    "visibility": "player"
+  },
+  {
+    "id": "bards",
+    "name": "Bards Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 67.5,
+    "y": 28.1,
+    "w": 10.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/bards.html",
+    "visibility": "player"
+  },
+  {
+    "id": "druids",
+    "name": "Druids Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 53.3,
+    "y": 14.8,
+    "w": 11.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/druids.html",
+    "visibility": "player"
+  },
+  {
+    "id": "wizards",
+    "name": "Wizards Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 85.3,
+    "y": 26.9,
+    "w": 11.5,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/wizards.html",
+    "visibility": "player",
+    "related": [
+      "oswald_crumb"
+    ]
+  },
+  {
+    "id": "sorcerers",
+    "name": "Sorcerers Department",
+    "type": "location",
+    "category": "Departments",
+    "x": 66.8,
+    "y": 10.8,
+    "w": 11.0,
+    "h": 5.0,
+    "contentType": "html",
+    "contentFile": "content/sorcerers.html",
+    "visibility": "player"
+  },
+  {
+    "id": "main_complex",
+    "name": "The Main F.U.C.K.S. Complex",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "x": 50.0,
+    "y": 44.4,
+    "contentType": "html",
+    "contentFile": "content/main_complex.html",
+    "visibility": "player"
+  },
+  {
+    "id": "founders_statue",
+    "name": "The Founder's Statue",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "contentType": "html",
+    "contentFile": "content/founders_statue.html",
+    "visibility": "player",
+    "related": [
+      "secret_society",
+      "ninth_thesis",
+      "aldric_voss",
+      "session_2"
+    ]
+  },
+  {
+    "id": "food_court",
+    "name": "The Food Court",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "contentType": "html",
+    "contentFile": "content/food_court.html",
+    "visibility": "player",
+    "related": [
+      "underground_storage"
+    ]
+  },
+  {
+    "id": "old_library",
+    "name": "The Old Library",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "contentType": "html",
+    "contentFile": "content/old_library.html",
+    "visibility": "player",
+    "related": [
+      "orath_charter",
+      "secret_society",
+      "isolde_orath"
+    ]
+  },
+  {
+    "id": "memorial_garden",
+    "name": "The Founder's Memorial Garden",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "contentType": "html",
+    "contentFile": "content/memorial_garden.html",
+    "visibility": "player",
+    "related": [
+      "aldric_voss"
+    ]
+  },
+  {
+    "id": "underground_storage",
+    "name": "Food Court Underground Storage",
+    "type": "location",
+    "category": "Underground Infrastructure",
+    "contentType": "html",
+    "contentFile": "content/underground_storage.html",
+    "visibility": "dm-only",
+    "related": [
+      "bodak",
+      "mimics",
+      "magical_gauntlet",
+      "session_1"
+    ]
+  },
+  {
+    "id": "fail_chamber",
+    "name": "FAIL Examination Chamber",
+    "type": "location",
+    "category": "Special Facilities",
+    "contentType": "html",
+    "contentFile": "content/fail_chamber.html",
+    "visibility": "player",
+    "related": [
+      "ellery_voss",
+      "jungle_site",
+      "teleportation_network",
+      "session_3"
+    ]
+  },
+  {
+    "id": "owlbear_cave",
+    "name": "Owlbear Containment Cave",
+    "type": "location",
+    "category": "Special Facilities",
+    "contentType": "html",
+    "contentFile": "content/owlbear_cave.html",
+    "visibility": "player",
+    "related": [
+      "kass",
+      "rangers",
+      "maren_duskhollow",
+      "session_4"
+    ]
+  },
+  {
+    "id": "jungle_site",
+    "name": "Jungle Field Site",
+    "type": "location",
+    "category": "Remote Field Sites",
+    "contentType": "html",
+    "contentFile": "content/jungle_site.html",
+    "visibility": "player",
+    "related": [
+      "sunken_fang_spear",
+      "dinosaurs",
+      "fail_chamber",
+      "session_3"
+    ]
+  },
+  {
+    "id": "nether_mountains",
+    "name": "Nether Mountains Expedition Site",
+    "type": "location",
+    "category": "Remote Field Sites",
+    "contentType": "html",
+    "contentFile": "content/nether_mountains.html",
+    "visibility": "player",
+    "related": [
+      "oswald_crumb",
+      "thornwick_consortium"
+    ]
+  },
+  {
+    "id": "voss_imprint",
+    "name": "Aldric Voss's Architectural Imprint",
+    "type": "location",
+    "category": "Founding-Era & Lore",
+    "contentType": "html",
+    "contentFile": "content/voss_imprint.html",
+    "visibility": "dm-only",
+    "related": [
+      "aldric_voss"
+    ]
+  },
+  {
+    "id": "eastern_wing",
+    "name": "The Eastern Wing",
+    "type": "location",
+    "category": "Founding-Era & Lore",
+    "contentType": "html",
+    "contentFile": "content/eastern_wing.html",
+    "visibility": "dm-only"
+  }
+]

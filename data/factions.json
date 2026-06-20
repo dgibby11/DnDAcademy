@@ -1,0 +1,31 @@
+[
+  {
+    "id": "secret_society",
+    "name": "The Secret Society",
+    "type": "faction",
+    "category": "Societies",
+    "contentType": "html",
+    "contentFile": "content/secret_society.html",
+    "visibility": "dm-only",
+    "related": [
+      "founders_statue",
+      "ninth_thesis",
+      "brennan_ashcroft",
+      "old_library",
+      "occult_systems"
+    ]
+  },
+  {
+    "id": "thornwick_consortium",
+    "name": "Thornwick Arcane Consortium",
+    "type": "faction",
+    "category": "External Powers",
+    "contentType": "html",
+    "contentFile": "content/thornwick_consortium.html",
+    "visibility": "dm-only",
+    "related": [
+      "oswald_crumb",
+      "nether_mountains"
+    ]
+  }
+]

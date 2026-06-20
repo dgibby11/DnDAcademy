@@ -1,0 +1,44 @@
+[
+  {
+    "id": "sunken_fang_spear",
+    "name": "Sunken Fang Spear",
+    "type": "item",
+    "category": "Artifacts",
+    "contentType": "html",
+    "contentFile": "content/sunken_fang_spear.html",
+    "visibility": "player",
+    "related": [
+      "jungle_site",
+      "dinosaurs",
+      "fail_chamber",
+      "session_3"
+    ]
+  },
+  {
+    "id": "magical_gauntlet",
+    "name": "Magical Gauntlet",
+    "type": "item",
+    "category": "Artifacts",
+    "contentType": "html",
+    "contentFile": "content/magical_gauntlet.html",
+    "visibility": "player",
+    "related": [
+      "underground_storage",
+      "session_1"
+    ]
+  },
+  {
+    "id": "orath_charter",
+    "name": "Isolde Orath's Charter Documents",
+    "type": "item",
+    "category": "Documents",
+    "contentType": "html",
+    "contentFile": "content/orath_charter.html",
+    "visibility": "dm-only",
+    "related": [
+      "isolde_orath",
+      "old_library",
+      "secret_society"
+    ]
+  }
+]

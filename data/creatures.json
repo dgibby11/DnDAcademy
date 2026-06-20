@@ -1,0 +1,81 @@
+[
+  {
+    "id": "bodak",
+    "name": "The Bodak",
+    "type": "creature",
+    "category": "Contained Threats",
+    "contentType": "html",
+    "contentFile": "content/bodak.html",
+    "visibility": "dm-only",
+    "related": [
+      "underground_storage",
+      "session_1"
+    ],
+    "links": [
+      {
+        "label": "Bodak - D&D Beyond",
+        "url": "https://www.dndbeyond.com/monsters/16975-bodak"
+      }
+    ]
+  },
+  {
+    "id": "kass",
+    "name": "Kass (Owlbear)",
+    "type": "creature",
+    "category": "Campus Creatures",
+    "contentType": "html",
+    "contentFile": "content/kass.html",
+    "visibility": "player",
+    "related": [
+      "owlbear_cave",
+      "rangers",
+      "maren_duskhollow",
+      "session_4"
+    ],
+    "links": [
+      {
+        "label": "Owlbear - D&D Beyond",
+        "url": "https://www.dndbeyond.com/monsters/16975-owlbear"
+      }
+    ]
+  },
+  {
+    "id": "mimics",
+    "name": "Mimics",
+    "type": "creature",
+    "category": "Contained Threats",
+    "contentType": "html",
+    "contentFile": "content/mimics.html",
+    "visibility": "dm-only",
+    "related": [
+      "underground_storage",
+      "session_1"
+    ],
+    "links": [
+      {
+        "label": "Mimic - D&D Beyond",
+        "url": "https://www.dndbeyond.com/monsters/27127-mimic"
+      }
+    ]
+  },
+  {
+    "id": "dinosaurs",
+    "name": "Jungle Dinosaurs",
+    "type": "creature",
+    "category": "Field Threats",
+    "contentType": "html",
+    "contentFile": "content/dinosaurs.html",
+    "visibility": "player",
+    "related": [
+      "jungle_site",
+      "sunken_fang_spear",
+      "session_3"
+    ],
+    "links": [
+      {
+        "label": "Triceratops - D&D Beyond",
+        "url": "https://www.dndbeyond.com/monsters/27186-triceratops"
+      }
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+[
+  {
+    "id": "ninth_thesis",
+    "name": "The Ninth Thesis",
+    "type": "mystery",
+    "category": "Conspiracies",
+    "contentType": "html",
+    "contentFile": "content/ninth_thesis.html",
+    "visibility": "dm-only",
+    "related": [
+      "secret_society",
+      "founders_statue",
+      "session_2"
+    ]
+  },
+  {
+    "id": "teleportation_network",
+    "name": "Teleportation Infrastructure",
+    "type": "mystery",
+    "category": "Hidden Systems",
+    "contentType": "html",
+    "contentFile": "content/teleportation_network.html",
+    "visibility": "dm-only",
+    "related": [
+      "fail_chamber",
+      "jungle_site",
+      "ellery_voss",
+      "session_3"
+    ]
+  },
+  {
+    "id": "occult_systems",
+    "name": "Sacrificial / Occult Systems",
+    "type": "mystery",
+    "category": "Hidden Systems",
+    "contentType": "html",
+    "contentFile": "content/occult_systems.html",
+    "visibility": "dm-only",
+    "related": [
+      "underground_storage",
+      "secret_society",
+      "founders_statue"
+    ]
+  },
+  {
+    "id": "hidden_knowledge",
+    "name": "Hidden Knowledge & Bargains",
+    "type": "mystery",
+    "category": "Hidden Systems",
+    "contentType": "html",
+    "contentFile": "content/hidden_knowledge.html",
+    "visibility": "dm-only",
+    "related": [
+      "founders_statue",
+      "secret_society",
+      "old_library"
+    ]
+  },
+  {
+    "id": "open_questions",
+    "name": "Loose Threads & Open Questions",
+    "type": "mystery",
+    "category": "Threads",
+    "contentType": "html",
+    "contentFile": "content/open_questions.html",
+    "visibility": "dm-only"
+  }
+]
