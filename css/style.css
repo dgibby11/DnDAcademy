@@ -740,7 +740,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   position: absolute;
   top: calc(100% + 5px);
   right: 0;
-  width: 290px;
+  width: 340px;
   background: #1a1510;
   border: 1px solid var(--line);
   border-radius: 3px;
