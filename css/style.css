@@ -778,10 +778,11 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   fill: none;
   stroke-width: 1.8;
 }
+/* font-size is set as an SVG attribute (viewBox units) so it scales with the
+   rendered element — no CSS font-size here or it will override the attribute. */
 .die-svg text {
   fill: var(--gold-soft);
   font-family: var(--display);
-  font-size: 14px;
   text-anchor: middle;
 }
 .die-btn-active .die-svg polygon,
@@ -789,10 +790,10 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 .die-btn-active .die-svg circle { stroke: var(--gold); }
 .die-btn-active .die-svg text { fill: var(--gold); }
 
-/* result dice — slightly smaller, use sepia fill tint */
+/* result dice — larger than selector so rolled values are easy to read */
 .dice-result-die .die-svg {
-  width: 30px;
-  height: 30px;
+  width: 42px;
+  height: 42px;
 }
 .dice-result-die .die-svg polygon,
 .dice-result-die .die-svg rect,
@@ -803,7 +804,6 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 }
 .dice-result-die .die-svg text {
   fill: var(--sepia);
-  font-size: 13px;
 }
 
 #dice-controls {

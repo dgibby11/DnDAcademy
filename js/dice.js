@@ -5,22 +5,37 @@
 // count). Enter the count, hit Roll. Results stack newest-first, limited to 12 rolls.
 
 (function () {
-  // SVG shape templates — ROLL is replaced with the rolled value for results,
-  // or with 'd4', 'd6', etc. for the selector buttons.
+  // SVG font-size in viewBox units, scaled by text length so values always fit.
+  // Using SVG attribute (not CSS) so it scales with the viewBox rather than
+  // being fixed in screen pixels.
+  function fsize(v) {
+    const n = String(v).length;
+    return n >= 4 ? 9 : n === 3 ? 11 : n === 2 ? 15 : 18;
+  }
+
+  // Each template places text at the shape's centroid with dominant-baseline="central"
+  // so the font-size can vary freely without breaking vertical alignment.
   const SHAPES = {
-    4:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,3 48,46 2,46"/><text x="25" y="36">${v}</text></svg>`,
-    6:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><rect x="2" y="2" width="46" height="46" rx="4"/><text x="25" y="31">${v}</text></svg>`,
-    8:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,2 48,25 25,48 2,25"/><text x="25" y="31">${v}</text></svg>`,
-    10:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,2 44,18 38,46 12,46 6,18"/><text x="25" y="33">${v}</text></svg>`,
-    12:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,1 47,17 39,43 11,43 3,17"/><text x="25" y="30">${v}</text></svg>`,
-    20:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="2,4 48,4 25,48"/><text x="25" y="26">${v}</text></svg>`,
-    100: (v) => `<svg viewBox="0 0 50 50" class="die-svg"><circle cx="25" cy="25" r="23"/><text x="25" y="30">${v}</text></svg>`,
+    // d4: upward equilateral triangle — centroid y = (3+46+46)/3 ≈ 32
+    4:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,3 48,46 2,46"/><text x="25" y="32" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d6: square
+    6:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><rect x="2" y="2" width="46" height="46" rx="4"/><text x="25" y="25" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d8: diamond
+    8:   (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,2 48,25 25,48 2,25"/><text x="25" y="25" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d10: wide pentagon — centroid y ≈ 26
+    10:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,2 44,18 38,46 12,46 6,18"/><text x="25" y="26" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d12: regular pentagon — centroid y ≈ 25
+    12:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="25,1 47,17 39,43 11,43 3,17"/><text x="25" y="25" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d20: circle (icosahedron approximated as circle)
+    20:  (v) => `<svg viewBox="0 0 50 50" class="die-svg"><circle cx="25" cy="25" r="22"/><text x="25" y="25" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
+    // d100: octagon — distinct from the d20 circle
+    100: (v) => `<svg viewBox="0 0 50 50" class="die-svg"><polygon points="15,2 35,2 48,15 48,35 35,48 15,48 2,35 2,15"/><text x="25" y="25" font-size="${fsize(v)}" dominant-baseline="central">${v}</text></svg>`,
   };
+
   const DICE = [4, 6, 8, 10, 12, 20, 100];
 
   let panel, resultArea, numInput, activeLabel;
-  let activeDie  = 20;
-  let numDice    = 1;
+  let activeDie = 20;
 
   // ── Roll logic ──────────────────────────────────────────────────────────────
 
