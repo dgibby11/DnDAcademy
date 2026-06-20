@@ -24,6 +24,21 @@
     "visibility": "player"
   },
   {
+    "id": "academy_credits",
+    "name": "Academy Credits — Economy Guide",
+    "type": "reference",
+    "category": "Campus Life",
+    "contentType": "html",
+    "contentFile": "content/academy_credits.html",
+    "visibility": "player",
+    "related": [
+      "academy_provisions",
+      "silas_morne",
+      "lenny_goldvein"
+    ],
+    "tags": ["credits", "economy", "store", "potions"]
+  },
+  {
     "id": "dnd_resources",
     "name": "D&D 5e Resources",
     "type": "reference",

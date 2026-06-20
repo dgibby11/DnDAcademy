@@ -165,7 +165,7 @@
   },
   {
     "id": "main_complex",
-    "name": "The Main F.U.C.K.S. Complex",
+    "name": "The Main Academy Complex",
     "type": "location",
     "category": "Central Campus Facilities",
     "x": 50.0,
@@ -320,5 +320,22 @@
     "contentType": "html",
     "contentFile": "content/eastern_wing.html",
     "visibility": "dm-only"
+  },
+  {
+    "id": "academy_provisions",
+    "name": "The Provisions Office",
+    "type": "location",
+    "category": "Central Campus Facilities",
+    "contentType": "html",
+    "contentFile": "content/academy_provisions.html",
+    "visibility": "player",
+    "related": [
+      "silas_morne",
+      "academy_credits",
+      "lenny_goldvein",
+      "food_court",
+      "potion_of_healing"
+    ],
+    "tags": ["store", "credits", "supplies", "provisions"]
   }
 ]

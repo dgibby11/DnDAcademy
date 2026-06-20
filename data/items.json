@@ -28,6 +28,59 @@
     ]
   },
   {
+    "id": "potion_of_healing",
+    "name": "Potion of Healing",
+    "type": "item",
+    "category": "Consumables",
+    "contentType": "html",
+    "contentFile": "content/potion_of_healing.html",
+    "visibility": "player",
+    "related": ["academy_provisions", "academy_credits"],
+    "tags": ["potion", "healing", "store", "consumable"]
+  },
+  {
+    "id": "eyes_of_minute_seeing",
+    "name": "Eyes of Minute Seeing",
+    "type": "item",
+    "category": "Special Acquisitions",
+    "contentType": "html",
+    "contentFile": "content/eyes_of_minute_seeing.html",
+    "visibility": "player",
+    "related": ["academy_provisions"],
+    "links": [
+      { "label": "Eyes of Minute Seeing — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/4642-eyes-of-minute-seeing" }
+    ],
+    "tags": ["magic-item", "store", "special-acquisition", "wondrous"]
+  },
+  {
+    "id": "bag_of_tricks",
+    "name": "Bag of Tricks (Gray)",
+    "type": "item",
+    "category": "Special Acquisitions",
+    "contentType": "html",
+    "contentFile": "content/bag_of_tricks.html",
+    "visibility": "player",
+    "related": ["academy_provisions"],
+    "links": [
+      { "label": "Bag of Tricks — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/9228-bag-of-tricks" }
+    ],
+    "tags": ["magic-item", "store", "special-acquisition", "wondrous"]
+  },
+  {
+    "id": "goggles_of_night",
+    "name": "Goggles of Night",
+    "type": "item",
+    "category": "Special Acquisitions",
+    "contentType": "html",
+    "contentFile": "content/goggles_of_night.html",
+    "visibility": "player",
+    "related": ["academy_provisions"],
+    "links": [
+      { "label": "Goggles of Night — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/4659-goggles-of-night" }
+    ],
+    "tags": ["magic-item", "store", "special-acquisition", "wondrous"]
+  },
+  {
     "id": "orath_charter",
     "name": "Isolde Orath's Charter Documents",
     "type": "item",

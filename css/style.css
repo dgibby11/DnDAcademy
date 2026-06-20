@@ -1,4 +1,4 @@
-/* style.css — F.U.C.K.S. Academy
+/* style.css — FAIL Academy
    Theme: dark-academia / conspiracy "campus dossier".
    - App chrome: dark navy-brown, engraved gold serif caps, leather feel.
    - Modal: an aged-parchment dossier page (sepia ink on paper).
@@ -164,7 +164,7 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   height: 100%;
   max-width: 100%;
-  aspect-ratio: 1448 / 1086; /* matches assets/FUCKS_map.png — update if the map changes */
+  aspect-ratio: 1448 / 1086; /* matches assets/campus_map.png — update if the map changes */
   line-height: 0;
   /* ornate dark frame around the map, like a pinned dossier photo */
   padding: 10px;
@@ -450,6 +450,31 @@ details[open] > .menu-type-title::before { content: "▾"; }
   flex: 0 0 auto;
 }
 #modal-close:hover { color: var(--oxblood); }
+#modal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding: 0.55rem 1.4rem;
+  background: rgba(120,90,50,0.07);
+  border-bottom: 1px solid var(--paper-edge);
+}
+#modal-links[hidden] { display: none; }
+.modal-ext-btn {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(139,30,30,0.08);
+  border: 1px solid var(--paper-edge);
+  border-radius: 3px;
+  color: var(--oxblood);
+  font-family: var(--body);
+  font-size: 0.78rem;
+  padding: 0.26rem 0.6rem;
+  text-decoration: none;
+  transition: background 0.12s, border-color 0.12s;
+}
+.modal-ext-btn::after { content: " ↗"; font-size: 0.8em; opacity: 0.7; }
+.modal-ext-btn:hover { background: rgba(139,30,30,0.16); border-color: var(--oxblood); }
+
 #modal-body {
   padding: 1.3rem 1.6rem 1.6rem;
   overflow-y: auto;
@@ -535,9 +560,146 @@ body.dm-on .dm-only { display: block; }
   border-radius: 0 3px 3px 0;
 }
 
+/* ---------- Modal DM footer (reveal toggle + notes) ---------- */
+#modal-dm-footer {
+  flex: 0 0 auto;
+  background: linear-gradient(180deg, #1d1710, #16110c);
+  border-top: 2px solid var(--oxblood);
+  padding: 0.75rem 1.4rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+body:not(.dm-on) #modal-dm-footer { display: none; }
+
+.dm-footer-row { display: flex; align-items: center; gap: 0.75rem; }
+
+.reveal-btn {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+  font-family: var(--body);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  padding: 0.32rem 0.75rem;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.reveal-btn:hover { border-color: var(--gold-soft); color: var(--ink); }
+.reveal-btn.reveal-btn-on {
+  border-color: var(--dm);
+  color: var(--dm);
+  background: rgba(211,154,62,0.12);
+  box-shadow: 0 0 8px rgba(211,154,62,0.2);
+}
+
+.dm-footer-notes { display: flex; flex-direction: column; gap: 0.3rem; }
+.dm-footer-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+#modal-notes-area {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  padding: 0.45rem 0.65rem;
+  resize: vertical;
+  min-height: 4.5rem;
+  max-height: 14rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s;
+}
+#modal-notes-area:focus { border-color: var(--dm); }
+#modal-notes-area::placeholder { color: var(--muted); opacity: 0.6; }
+
+/* ---------- Live search ---------- */
+#search-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 340px;
+  position: relative;
+}
+#search-input {
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  padding: 0.38rem 0.75rem;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  /* remove default search-input "x" button in WebKit */
+  -webkit-appearance: none;
+  appearance: none;
+}
+#search-input::-webkit-search-cancel-button { display: none; }
+#search-input::placeholder { color: var(--muted); opacity: 0.7; }
+#search-input:focus {
+  border-color: var(--gold-soft);
+  box-shadow: 0 0 0 1px rgba(201,162,39,0.22), 0 0 8px rgba(201,162,39,0.1);
+}
+
+#search-results {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.6);
+  list-style: none;
+  margin: 0;
+  padding: 0.25rem 0;
+  z-index: 200;
+  max-height: 320px;
+  overflow-y: auto;
+}
+#search-results[hidden] { display: none; }
+
+.sr-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  padding: 0.42rem 0.85rem;
+  cursor: pointer;
+  font-size: 0.88rem;
+  color: var(--ink);
+  transition: background 0.1s ease;
+}
+.sr-item:hover,
+.sr-item.sr-active {
+  background: rgba(201,162,39,0.1);
+}
+.sr-item-dm .sr-name { color: var(--dm); }
+.sr-name { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sr-badge {
+  flex: 0 0 auto;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border: 1px solid var(--line-soft);
+  border-radius: 2px;
+  padding: 0.1rem 0.35rem;
+  background: rgba(0,0,0,0.2);
+}
+
 /* ---------- Responsiveness (desktop-first, don't break narrow) ---------- */
 @media (max-width: 640px) {
   #topbar { flex-wrap: wrap; gap: 0.5rem; }
+  #search-wrap { max-width: 100%; order: 3; width: 100%; }
   .subtitle { display: none; }
   .file-tag { display: none; }
   #modal { max-height: 92vh; }

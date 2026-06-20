@@ -55,7 +55,6 @@
     btn.textContent = entity.name;
     btn.addEventListener("click", () => {
       window.openLocationModal(entity);
-      closePanel();
     });
     return btn;
   }

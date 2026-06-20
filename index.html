@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>F.U.C.K.S. Academy — Campus Map</title>
+  <title>FAIL Academy — Campus Map</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
@@ -11,10 +11,15 @@
     <div class="bar-left">
       <button id="open-menu" type="button">☰ Index</button>
       <div class="title-block">
-        <h1>F.U.C.K.S. Academy</h1>
-        <p class="subtitle">Faculty of Unrestricted Combat, Kinetics &amp; Sorcery</p>
+        <h1>FAIL Academy</h1>
+        <p class="subtitle">Faculty of Arms, Inquiry &amp; Lore</p>
       </div>
     </div>
+    <div id="search-wrap" role="search">
+      <input type="search" id="search-input" placeholder="Search… ( / )" autocomplete="off" aria-label="Search entities" />
+      <ul id="search-results" role="listbox" hidden></ul>
+    </div>
+
     <div class="bar-right">
       <span class="file-tag">Campus Dossier</span>
       <button id="dm-toggle" type="button" aria-pressed="false">DM Mode: OFF</button>
@@ -30,7 +35,7 @@
     <!-- The map and its hotspot overlay share this wrapper so hotspots
          can be positioned as a percentage of the image box. -->
     <div id="map-frame">
-      <img id="campus-map" src="assets/FUCKS_map.png" alt="F.U.C.K.S. Academy campus map" />
+      <img id="campus-map" src="assets/campus_map.png" alt="FAIL Academy campus map" />
       <div id="hotspot-layer"><!-- hotspots injected by map.js --></div>
     </div>
   </main>
@@ -46,8 +51,10 @@
   </aside>
 
   <script src="js/data.js"></script>
+  <script src="js/state.js"></script>
   <script src="js/modal.js"></script>
   <script src="js/map.js"></script>
   <script src="js/menu.js"></script>
+  <script src="js/search.js"></script>
 </body>
 </html>

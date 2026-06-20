@@ -1,17 +1,75 @@
 [
   {
-    "id": "player_characters",
-    "name": "The Party (PCs)",
+    "id": "lugeiros_serise",
+    "name": "Lugeiros Serise",
     "type": "npc",
     "category": "Player Characters",
     "contentType": "html",
-    "contentFile": "content/player_characters.html",
+    "contentFile": "content/lugeiros_serise.html",
+    "visibility": "player",
+    "related": ["session_1", "session_2", "session_3"],
+    "links": [
+      { "label": "Lugeiros Serise — D&D Beyond", "url": "https://www.dndbeyond.com/characters/157565841" }
+    ],
+    "tags": ["player-character", "ranger", "elf"]
+  },
+  {
+    "id": "gunnar",
+    "name": "Gunnar",
+    "type": "npc",
+    "category": "Player Characters",
+    "contentType": "html",
+    "contentFile": "content/gunnar.html",
+    "visibility": "player",
+    "related": ["session_1", "session_2", "session_3"],
+    "links": [
+      { "label": "Gunnar — D&D Beyond", "url": "https://www.dndbeyond.com/characters/157566207" }
+    ],
+    "tags": ["player-character", "ranger", "elf"]
+  },
+  {
+    "id": "caelum_rivenstone",
+    "name": "Caelum Rivenstone",
+    "type": "npc",
+    "category": "Player Characters",
+    "contentType": "html",
+    "contentFile": "content/caelum_rivenstone.html",
+    "visibility": "player",
+    "related": ["session_1", "session_2", "session_3"],
+    "links": [
+      { "label": "Caelum Rivenstone — D&D Beyond", "url": "https://www.dndbeyond.com/characters/123583842" }
+    ],
+    "tags": ["player-character", "bard", "half-elf"]
+  },
+  {
+    "id": "bloodraven",
+    "name": "BloodRaven",
+    "type": "npc",
+    "category": "Player Characters",
+    "contentType": "html",
+    "contentFile": "content/bloodraven.html",
+    "visibility": "player",
+    "related": ["sunken_fang_spear", "session_1", "session_2", "session_3"],
+    "links": [
+      { "label": "BloodRaven — D&D Beyond", "url": "https://www.dndbeyond.com/characters/138257820" }
+    ],
+    "tags": ["player-character", "fighter", "human"]
+  },
+  {
+    "id": "silas_morne",
+    "name": "Silas Morne",
+    "type": "npc",
+    "category": "Staff",
+    "contentType": "html",
+    "contentFile": "content/silas_morne.html",
     "visibility": "player",
     "related": [
-      "session_1",
-      "session_2",
-      "session_3"
-    ]
+      "academy_provisions",
+      "academy_credits",
+      "lenny_goldvein",
+      "thornwick_consortium"
+    ],
+    "tags": ["staff", "store", "provisions"]
   },
   {
     "id": "ellery_voss",
@@ -39,7 +97,9 @@
     "visibility": "player",
     "related": [
       "underground_storage",
-      "session_1"
+      "session_1",
+      "academy_provisions",
+      "academy_credits"
     ]
   },
   {
