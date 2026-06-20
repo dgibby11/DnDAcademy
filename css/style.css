@@ -740,13 +740,12 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   position: absolute;
   top: calc(100% + 5px);
   right: 0;
-  width: 340px;
+  width: 400px;
   background: #1a1510;
   border: 1px solid var(--line);
   border-radius: 3px;
   box-shadow: 0 8px 32px rgba(0,0,0,0.65);
   z-index: 95;
-  overflow: hidden;
 }
 #dice-panel[hidden] { display: none; }
 
