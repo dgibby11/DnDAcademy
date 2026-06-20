@@ -209,6 +209,10 @@
           </p>
         </div>`;
       appendExtras(loc);
+    } else if (type === 'inline') {
+      bodyEl.innerHTML = loc.content || '<p class="modal-status">No content.</p>';
+      resolveCrossLinks(bodyEl);
+      appendExtras(loc);
     } else {
       fetch(file)
         .then((res) => {
