@@ -731,6 +731,170 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   #generator-panel { width: 100%; max-height: 88vh; }
 }
 
+/* ---------- Dice roller ---------- */
+#dice-wrap {
+  position: relative;
+}
+#dice-btn {
+  background: none;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px;
+  color: var(--muted);
+  font-size: 1rem;
+  padding: 0.22rem 0.55rem;
+  line-height: 1;
+  transition: color 0.12s, border-color 0.12s;
+}
+#dice-btn:hover { color: var(--gold); border-color: var(--gold-soft); }
+
+#dice-panel {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  width: 290px;
+  background: #1a1510;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+  z-index: 95;
+  overflow: hidden;
+}
+#dice-panel[hidden] { display: none; }
+
+#dice-selector {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  padding: 0.55rem 0.5rem 0.35rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+.die-btn {
+  background: none; border: none;
+  padding: 3px;
+  opacity: 0.45;
+  cursor: pointer;
+  transition: opacity 0.12s, transform 0.1s;
+}
+.die-btn:hover { opacity: 0.8; transform: scale(1.1); }
+.die-btn-active { opacity: 1; }
+
+.die-svg {
+  display: block;
+  width: 34px;
+  height: 34px;
+  overflow: visible;
+}
+.die-svg polygon, .die-svg rect, .die-svg circle {
+  stroke: var(--gold-soft);
+  fill: none;
+  stroke-width: 1.8;
+}
+.die-svg text {
+  fill: var(--gold-soft);
+  font-family: var(--display);
+  font-size: 14px;
+  text-anchor: middle;
+}
+.die-btn-active .die-svg polygon,
+.die-btn-active .die-svg rect,
+.die-btn-active .die-svg circle { stroke: var(--gold); }
+.die-btn-active .die-svg text { fill: var(--gold); }
+
+/* result dice — slightly smaller, use sepia fill tint */
+.dice-result-die .die-svg {
+  width: 30px;
+  height: 30px;
+}
+.dice-result-die .die-svg polygon,
+.dice-result-die .die-svg rect,
+.dice-result-die .die-svg circle {
+  stroke: var(--gold-soft);
+  fill: rgba(201,162,39,0.08);
+  stroke-width: 1.5;
+}
+.dice-result-die .die-svg text {
+  fill: var(--sepia);
+  font-size: 13px;
+}
+
+#dice-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+#dice-num {
+  width: 2.6rem;
+  background: rgba(0,0,0,0.3);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.82rem;
+  padding: 0.2rem 0.35rem;
+  text-align: center;
+}
+#dice-num:focus { outline: none; border-color: var(--gold-soft); }
+.dice-active-label {
+  flex: 1;
+  color: var(--gold-soft);
+  font-family: var(--display);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+#dice-roll-btn {
+  padding: 0.25rem 0.65rem;
+  background: rgba(139,30,30,0.15);
+  border: 1px solid var(--oxblood);
+  border-radius: 3px;
+  color: var(--oxblood);
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.12s, color 0.12s;
+}
+#dice-roll-btn:hover { background: rgba(139,30,30,0.3); color: #c04040; }
+#dice-clear-btn {
+  padding: 0.25rem 0.5rem;
+  background: none;
+  border: 1px solid var(--line-soft);
+  border-radius: 3px;
+  color: var(--muted);
+  font-family: var(--display);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.12s, border-color 0.12s;
+}
+#dice-clear-btn:hover { color: var(--ink); border-color: var(--line); }
+
+#dice-result-area {
+  padding: 0.4rem 0.6rem;
+  max-height: 220px;
+  overflow-y: auto;
+}
+.dice-result-row {
+  padding: 0.28rem 0;
+  border-bottom: 1px solid rgba(58,53,48,0.4);
+}
+.dice-result-row:last-child { border-bottom: none; }
+.dice-result-dice {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2px;
+}
+.dice-result-total {
+  margin-left: 0.4rem;
+  color: var(--gold);
+  font-family: var(--display);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+
 /* ---------- Generator panel ---------- */
 #generator-btn {
   background: none;
