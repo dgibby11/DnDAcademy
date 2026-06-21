@@ -35,9 +35,11 @@
     (or a local server) rather than opening the file directly — see the README.
   </p>
 
-  <main id="map-stage">
-    <!-- The map and its hotspot overlay share this wrapper so hotspots
-         can be positioned as a percentage of the image box. -->
+  <div id="location-bar"></div>
+  <main id="dashboard"></main>
+
+  <!-- Campus map preserved for future use — hidden until repurposed -->
+  <main id="map-stage" hidden>
     <div id="map-frame">
       <img id="campus-map" src="assets/campus_map.png" alt="FAIL Academy campus map" />
       <div id="hotspot-layer"><!-- hotspots injected by map.js --></div>
@@ -62,5 +64,6 @@
   <script src="js/menu.js"></script>
   <script src="js/search.js"></script>
   <script src="js/dice.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>

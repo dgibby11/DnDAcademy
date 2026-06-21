@@ -23,8 +23,9 @@
   }
 
   const _state = load();
-  if (!_state.revealed) _state.revealed = {};
-  if (!_state.notes)    _state.notes    = {};
+  if (!_state.revealed)           _state.revealed           = {};
+  if (!_state.notes)              _state.notes              = {};
+  if (!('currentLocationId' in _state)) _state.currentLocationId = null;
 
   Object.assign(window.App, {
     isRevealed(id) {
@@ -46,6 +47,18 @@
       if (t) _state.notes[id] = t;
       else   delete _state.notes[id];
       save();
+    },
+
+    getCurrentLocationId() {
+      return _state.currentLocationId || null;
+    },
+    setCurrentLocation(id) {
+      _state.currentLocationId = id || null;
+      save();
+      document.dispatchEvent(new CustomEvent('location:changed', { detail: { id: _state.currentLocationId } }));
+    },
+    clearLocation() {
+      this.setCurrentLocation(null);
     },
   });
 
