@@ -133,6 +133,10 @@ button { font-family: inherit; cursor: pointer; }
   color: #fff;
   box-shadow: 0 0 0 1px rgba(201,162,39,0.25);
 }
+#dm-toggle:not(.dm-active) {
+  border-color: #2a7040;
+  color: #5aaa6a;
+}
 #dm-toggle.dm-active {
   border-color: var(--dm);
   color: var(--dm);
@@ -144,12 +148,6 @@ button { font-family: inherit; cursor: pointer; }
 #github-sync-btn[data-status="syncing"] { color: var(--muted); border-color: var(--line); }
 #github-sync-btn[data-status="error"]   { color: var(--oxblood-2); border-color: var(--oxblood); }
 
-/* Player-view mode indicator on the file-tag badge */
-.file-tag-player {
-  border-color: #2a7040;
-  color: #5aaa6a;
-  background: rgba(42,112,64,0.12);
-}
 
 /* ---------- Load error banner ---------- */
 #load-error {
@@ -282,6 +280,9 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-rows: 1fr 1fr;
   gap: 0.55rem;
 }
+/* In player view, curiosities quad is hidden; environment expands to fill */
+body:not(.dm-on) .quad-curiosities { display: none; }
+body:not(.dm-on) .quad-environment { grid-column: 1 / -1; }
 
 /* Each quadrant */
 .dash-quad {
@@ -1070,7 +1071,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   stroke-width: 1.5;
 }
 .dice-result-die .die-svg text {
-  fill: var(--sepia);
+  fill: var(--ink);
 }
 
 #dice-controls {

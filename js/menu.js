@@ -124,11 +124,6 @@
     toggleBtn.textContent = on ? "◆ DM View" : "◯ Player View";
     toggleBtn.classList.toggle("dm-active", on);
     toggleBtn.setAttribute("aria-pressed", String(on));
-    const fileTag = document.querySelector('.file-tag');
-    if (fileTag) {
-      fileTag.textContent = on ? 'Campaign Dossier' : 'Player View';
-      fileTag.classList.toggle('file-tag-player', !on);
-    }
   }
 
   function wire() {

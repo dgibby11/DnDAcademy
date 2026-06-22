@@ -49,8 +49,8 @@
 
   // A quadrant: header title bar + scrollable body. Returns the element;
   // content is added to .quad.body.
-  function makeQuad(title) {
-    const quad  = el('div', 'dash-quad');
+  function makeQuad(title, extraClass) {
+    const quad  = el('div', 'dash-quad' + (extraClass ? ' ' + extraClass : ''));
     quad.appendChild(el('div', 'dash-quad-header', title));
     const body  = el('div', 'dash-quad-body');
     quad.appendChild(body);
@@ -160,7 +160,7 @@
   }
 
   function makeEnvironmentQuad(loc, graphItems) {
-    const quad  = makeQuad('Environment');
+    const quad  = makeQuad('Environment', 'quad-environment');
     const env   = loc?.environment;
     const items = graphItems.filter((e) => e.type === 'item');
     let any = false;
@@ -206,7 +206,7 @@
   }
 
   function makeCuriositiesQuad(loc, graphEntities) {
-    const quad       = makeQuad('Curiosities');
+    const quad       = makeQuad('Curiosities', 'quad-curiosities');
     const allCuriosities = loc?.curiosities || [];
     const curiosities    = allCuriosities.filter(timeVisible);
     const mysteries  = graphEntities.filter((e) => e.type === 'mystery');
