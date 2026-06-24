@@ -1,3 +1,4 @@
 # Campaign state is written exclusively via GitHub API — not tracked locally.
 # Committing it locally would conflict with API writes from other machines.
 campaign-state.json
+pat.txt
