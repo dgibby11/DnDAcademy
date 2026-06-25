@@ -1378,6 +1378,8 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   flex-direction: column;
   overflow: hidden;
 }
+/* ID selector outspecifies [hidden] in author stylesheets — force it */
+#session-runner[hidden] { display: none; }
 
 /* Sub-topbar */
 .sr-bar {
@@ -1385,8 +1387,8 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   align-items: center;
   justify-content: space-between;
   padding: 0.35rem 1rem;
-  background: var(--panel);
-  border-bottom: 1px solid var(--line);
+  background: var(--panel-2);
+  border-bottom: 2px solid rgba(201,162,39,0.3);
   flex-shrink: 0;
   gap: 1rem;
 }
@@ -1428,7 +1430,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 .sr-panel {
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--line);
+  border-right: 2px solid rgba(201,162,39,0.22);
   min-height: 0;
   overflow: hidden;
 }
@@ -1441,13 +1443,13 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   justify-content: space-between;
   gap: 0.5rem;
   padding: 0.4rem 0.75rem;
-  background: var(--panel);
-  border-bottom: 1px solid var(--line-soft);
+  background: var(--bg-2);
+  border-bottom: 1px solid rgba(201,162,39,0.28);
   font-family: var(--display);
   font-size: 0.68rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--gold-soft);
 }
 
 .sr-panel-body {
@@ -1458,10 +1460,10 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 }
 
 /* Prompts */
-.sr-prompts { background: var(--bg-2); }
+.sr-prompts { background: var(--bg); }
 
 .sr-prompt-card {
-  background: var(--panel);
+  background: var(--panel-2);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 0.55rem 0.7rem;
@@ -1542,9 +1544,9 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 
 /* Sidebar */
 .sr-sidebar {
-  background: var(--panel);
+  background: var(--bg-2);
   border-right: none;
-  border-left: 1px solid var(--line);
+  border-left: 2px solid rgba(201,162,39,0.22);
 }
 
 .sr-add-pin {
@@ -1611,7 +1613,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 }
 .sr-pin-card {
   position: relative;
-  background: var(--bg-2);
+  background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 4px;
   padding: 0.4rem 1.5rem 0.4rem 0.55rem;
