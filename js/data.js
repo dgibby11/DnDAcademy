@@ -48,7 +48,7 @@
   function applyConfig(cfg) {
     if (cfg.mapImage) cfg.mapImage = resolveCampaignPath(cfg.mapImage);
     Object.assign(window.CAMPAIGN, cfg);
-    document.title = window.CAMPAIGN.name + ' — Campaign Dossier';
+    document.title = window.CAMPAIGN.name;
     const h1  = document.querySelector('#topbar h1');
     const sub = document.querySelector('#topbar .subtitle');
     if (h1)  h1.textContent  = window.CAMPAIGN.name;

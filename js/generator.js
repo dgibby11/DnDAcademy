@@ -60,10 +60,10 @@
     ],
 
     roles: [
-      '1st-Year Student','2nd-Year Student','3rd-Year Student','4th-Year Student (Senior)',
-      'Faculty — Combat Studies','Faculty — Applied Magic','Faculty — Intelligence & Recon',
-      'Faculty — Field Medicine','Staff — Administration','Staff — Facilities',
-      'Contractor (Thornwick Consortium)','Visiting Scholar','Alumni','External Agent',
+      'Merchant','Guard','Sellsword','Traveling Trader','Local Farmer','Laborer',
+      'Innkeeper','Tavern Worker','Acolyte','Priest','Artisan','Craftsperson',
+      'Retired Adventurer','Scout','Ranger','Scholar','Hedge Mage','Apprentice Mage',
+      'Guild Member','Noble\'s Servant','Town Watch','Pilgrim','Wanderer','Hunter',
     ],
 
     traits: [
@@ -84,21 +84,21 @@
       'Believes they are secretly somewhat famous.',
       'Never sits with their back to a doorway.',
       'Has a strong opinion about everyone\'s footwear.',
-      'Memorises campus schedules and knows exactly where everyone should be.',
+      'Keeps a mental record of everyone they\'ve met and exactly what they said.',
     ],
 
     bonds: [
       'Has a younger sibling back home they send money to every month.',
-      'Trying to graduate before a bitter rival does.',
-      'Owes a debt to someone on campus — and won\'t say who.',
-      'Had a mentor who disappeared two years ago.',
-      'Deeply loyal to their faction, to a fault.',
-      'Wants nothing more than to impress [[headmistress_dowe|Headmistress Dowe]].',
+      'Competing obsessively against a bitter rival who doesn\'t know they\'re rivals.',
+      'Owes a significant debt to someone they won\'t name.',
+      'Had a mentor who disappeared without explanation two years ago.',
+      'Deeply loyal to their faction or employer, to a fault.',
+      'Desperate to earn the respect of someone who has never given it.',
       'Running from something. Refuses to elaborate.',
-      'Desperately wants a place in the [[expedition_club|Expedition Club]].',
-      'Has a complicated, unresolved history with the [[thornwick_consortium|Thornwick Consortium]].',
-      'Once found something in the old wing of the library. Has told no one.',
-      'Is trying to prove something to a parent who said they\'d never survive here.',
+      'Wants recognition from people who consider them beneath notice.',
+      'Has a complicated, unresolved history with someone they keep running into.',
+      'Once found something they weren\'t supposed to find. Has told no one.',
+      'Is trying to prove something to a parent who expected them to fail.',
     ],
 
     flaws: [
@@ -124,24 +124,24 @@
       'remarkably good posture at all times',
       'rarely blinks — just watches',
       'perpetual ink stains on both hands',
-      'an Academy ring worn on the wrong finger',
+      'a ring on the wrong finger that they never explain',
       'a nervous habit of adjusting the same buckle over and over',
       'always holding something — a coin, a quill, a small smooth stone',
     ],
 
     hooks: [
-      'Needs someone to retrieve something from a restricted campus area.',
+      'Needs someone to retrieve something from a place they can\'t safely go themselves.',
       'Witnessed something they haven\'t reported — and won\'t, without persuasion.',
       'Has overheard conversations they definitely shouldn\'t have.',
       'Looking for a discreet buyer for something they shouldn\'t possess.',
-      'Owes credits they cannot repay and is getting nervous.',
-      'Claims to have a lead on the [[whispering_archive|Whispering Archive]].',
-      'Knows a way into or out of campus that isn\'t on any map.',
-      'Wants revenge on another student but can\'t act directly.',
-      'Has information about [[prof_oswald_crumb|Prof. Crumb\'s]] mountain research site.',
-      'Looking for allies for an unauthorised expedition outside campus.',
+      'Owes a debt they cannot repay and is getting desperate.',
+      'Claims to have a lead on something valuable — but won\'t say where they heard it.',
+      'Knows a passage or route that isn\'t on any map.',
+      'Wants revenge on someone but can\'t act directly.',
+      'Has information about something dangerous happening nearby — and is afraid to say so openly.',
+      'Looking for discreet allies for a venture they\'d rather not explain in full.',
       'Carrying something that isn\'t theirs and is afraid to give it back.',
-      'Has pieced together something about the [[thornwick_consortium|Thornwick supply chain]].',
+      'Has pieced together something they weren\'t supposed to know, and isn\'t sure who to trust.',
     ],
 
     // Items
@@ -150,7 +150,7 @@
     ],
 
     itemAdj: [
-      'Academy-Issue','Reclaimed','Experimental','Weathered','Reinforced',
+      'Battle-Worn','Reclaimed','Experimental','Weathered','Reinforced',
       'Compact','Antique','Field-Modified','Confiscated','Battered','Pristine','Oversized',
     ],
 
@@ -206,19 +206,19 @@
     },
 
     sources: [
-      '[[academy_provisions|Provisions Office]] stock',
-      'Special Acquisitions cabinet at the Prov',
-      'Field exercise — found on-site',
-      'Old campus storage — unclaimed property',
+      'Looted from a defeated enemy',
+      'Found in an abandoned ruin',
+      'Purchased from a traveling merchant',
+      'Left behind by a previous adventurer',
       'Personal item, previous owner unknown',
-      'Purchased in [[silverymoon|Silverymoon]] off-campus',
-      'Confiscated from a student, officially unsealed',
+      'Won in a game of chance',
+      'Reward from a completed job',
     ],
 
     prices: {
-      'Common':'50–100 AC',
-      'Uncommon':'150–300 AC',
-      'Rare':'500+ AC or not for sale',
+      'Common':'50–100 gp',
+      'Uncommon':'150–300 gp',
+      'Rare':'500+ gp or not for sale',
       'Very Rare':'Not for sale (found only)',
     },
   };

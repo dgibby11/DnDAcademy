@@ -1,6 +1,6 @@
 // state.js — persistent campaign state via localStorage.
 //
-// Shape (key "fucks.campaign.v1"):
+// Shape (key determined by campaign.json → storageKey, e.g. "lost-mine.v1"):
 //   { revealed: { "<id>": true }, notes: { "<id>": "..." },
 //     currentLocationId: string|null, timeOfDay: "dawn"|"day"|"dusk"|"night" }
 //

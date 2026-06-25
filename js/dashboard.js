@@ -318,9 +318,9 @@
     bar.innerHTML = '';
     const id  = window.App.getCurrentLocationId();
     const loc = id ? window.App.byId(id) : null;
-    bar.appendChild(el('span', 'loc-bar-indicator', loc ? '◎ ' + loc.name : '◎ Campus Root'));
+    bar.appendChild(el('span', 'loc-bar-indicator', loc ? '◎ ' + loc.name : '◎ Campaign Home'));
     if (loc) {
-      const back = el('button', 'loc-bar-back', '← Campus');
+      const back = el('button', 'loc-bar-back', '← Campaign Home');
       back.addEventListener('click', () => window.App.clearLocation());
       bar.appendChild(back);
     }
