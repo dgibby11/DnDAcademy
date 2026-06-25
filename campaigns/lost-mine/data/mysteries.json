@@ -1,0 +1,72 @@
+[
+  {
+    "id": "wave_echo_cave_location",
+    "name": "Where is Wave Echo Cave?",
+    "type": "mystery",
+    "category": "Primary Mysteries",
+    "contentType": "html",
+    "contentFile": "content/mysteries/wave_echo_cave_location.html",
+    "visibility": "player",
+    "related": ["gundren_rockseeker", "wave_echo_cave", "cragmaw_castle", "king_grol", "fate_of_phandelver_pact"]
+  },
+  {
+    "id": "black_spider_identity",
+    "name": "Who is the Black Spider?",
+    "type": "mystery",
+    "category": "Primary Mysteries",
+    "contentType": "html",
+    "contentFile": "content/mysteries/black_spider_identity.html",
+    "visibility": "player",
+    "related": ["nezznar_black_spider", "iarno_albrek", "cragmaw_tribe", "redbrand_hideout"]
+  },
+  {
+    "id": "glasstaff_identity",
+    "name": "Who is Glasstaff?",
+    "type": "mystery",
+    "category": "Primary Mysteries",
+    "contentType": "html",
+    "contentFile": "content/mysteries/glasstaff_identity.html",
+    "visibility": "player",
+    "related": ["iarno_albrek", "redbrand_hideout", "sildar_hallwinter", "lords_alliance"]
+  },
+  {
+    "id": "fate_of_phandelver_pact",
+    "name": "The Phandelver Pact",
+    "type": "mystery",
+    "category": "Lore Mysteries",
+    "contentType": "html",
+    "contentFile": "content/mysteries/fate_of_phandelver_pact.html",
+    "visibility": "player",
+    "related": ["wave_echo_cave", "forge_of_spells", "gundren_rockseeker"]
+  },
+  {
+    "id": "forge_of_spells",
+    "name": "The Forge of Spells",
+    "type": "mystery",
+    "category": "Lore Mysteries",
+    "contentType": "html",
+    "contentFile": "content/mysteries/forge_of_spells.html",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave", "spectator", "nezznar_black_spider", "fate_of_phandelver_pact"]
+  },
+  {
+    "id": "mirnas_heirloom",
+    "name": "Mirna's Heirloom",
+    "type": "mystery",
+    "category": "Side Quests",
+    "contentType": "html",
+    "contentFile": "content/mysteries/mirnas_heirloom.html",
+    "visibility": "player",
+    "related": ["redbrand_hideout", "ruins_of_thundertree"]
+  },
+  {
+    "id": "bowgentles_spellbook",
+    "name": "Bowgentle's Spellbook",
+    "type": "mystery",
+    "category": "Side Quests",
+    "contentType": "html",
+    "contentFile": "content/mysteries/bowgentles_spellbook.html",
+    "visibility": "player",
+    "related": ["agatha", "sister_garaele", "conyberry"]
+  }
+]

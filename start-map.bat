@@ -14,4 +14,4 @@ where py >nul 2>&1 && (
 
 REM Give the server a moment to bind, then open the browser.
 timeout /t 1 /nobreak >nul
-start "" "http://localhost:8000/"
+start "" "http://localhost:8000/launcher.html"

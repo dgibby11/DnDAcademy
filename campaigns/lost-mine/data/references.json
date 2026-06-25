@@ -1,0 +1,22 @@
+[
+  {
+    "id": "lmop_overview",
+    "name": "Lost Mine of Phandelver — Overview",
+    "type": "reference",
+    "category": "Campaign",
+    "contentType": "html",
+    "contentFile": "content/references/lmop_overview.html",
+    "visibility": "dm-only",
+    "related": ["gundren_rockseeker", "wave_echo_cave", "fate_of_phandelver_pact", "nezznar_black_spider"]
+  },
+  {
+    "id": "faction_overview",
+    "name": "Five Factions — Quick Reference",
+    "type": "reference",
+    "category": "Campaign",
+    "contentType": "html",
+    "contentFile": "content/references/faction_overview.html",
+    "visibility": "dm-only",
+    "related": ["lords_alliance", "harpers", "order_of_the_gauntlet", "emerald_enclave", "zhentarim"]
+  }
+]

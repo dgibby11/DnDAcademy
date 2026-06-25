@@ -1,0 +1,63 @@
+[
+  {
+    "id": "session_1_goblin_arrows",
+    "name": "Session 1: Goblin Arrows",
+    "type": "session",
+    "category": "Planning",
+    "contentType": "html",
+    "contentFile": "content/sessions/session_1_goblin_arrows.html",
+    "visibility": "dm-only",
+    "startLocation": "triboar_trail",
+    "related": [
+      "cragmaw_hideout", "klarg", "yeemik", "sildar_hallwinter",
+      "cragmaw_tribe", "gundren_rockseeker", "phandalin"
+    ]
+  },
+  {
+    "id": "session_2_phandalin",
+    "name": "Session 2: Trouble in Phandalin",
+    "type": "session",
+    "category": "Planning",
+    "contentType": "html",
+    "contentFile": "content/sessions/session_2_phandalin.html",
+    "visibility": "dm-only",
+    "startLocation": "phandalin",
+    "related": [
+      "phandalin", "redbrand_hideout", "iarno_albrek", "redbrands", "nothic",
+      "toblen_stonehill", "elmar_barthen", "linene_graywind", "halia_thornton",
+      "sister_garaele", "daran_edermath", "qelline_alderleaf", "harbin_wester",
+      "sildar_hallwinter"
+    ]
+  },
+  {
+    "id": "session_3_spiders_web",
+    "name": "Session 3: The Spider's Web",
+    "type": "session",
+    "category": "Planning",
+    "contentType": "html",
+    "contentFile": "content/sessions/session_3_spiders_web.html",
+    "visibility": "dm-only",
+    "startLocation": "phandalin",
+    "related": [
+      "ruins_of_thundertree", "venomfang", "reidoth",
+      "cragmaw_castle", "king_grol", "gundren_rockseeker",
+      "old_owl_well", "hamun_kost", "wyvern_tor",
+      "conyberry", "agatha", "bowgentles_spellbook"
+    ]
+  },
+  {
+    "id": "session_4_wave_echo_cave",
+    "name": "Session 4: Wave Echo Cave",
+    "type": "session",
+    "category": "Planning",
+    "contentType": "html",
+    "contentFile": "content/sessions/session_4_wave_echo_cave.html",
+    "visibility": "dm-only",
+    "startLocation": "wave_echo_cave",
+    "related": [
+      "wave_echo_cave", "nezznar_black_spider", "mormesk", "flameskull", "spectator",
+      "nundro_rockseeker", "tharden_rockseeker", "forge_of_spells",
+      "lightbringer", "dragonguard", "hew", "spider_staff"
+    ]
+  }
+]

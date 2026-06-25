@@ -1,0 +1,14 @@
+{
+  "id": "lost-mine",
+  "name": "Lost Mine of Phandelver",
+  "subtitle": "Sword Coast — Characters Level 1–5",
+  "mapImage": "assets/phandalin_region.png",
+  "rootLocation": "phandalin",
+  "storageKey": "lost-mine.v1",
+  "dmPassHash": "",
+  "github": {
+    "owner": "dgibby11",
+    "repo": "DnDAcademy",
+    "stateFile": "campaigns/lost-mine/campaign-state.json"
+  }
+}

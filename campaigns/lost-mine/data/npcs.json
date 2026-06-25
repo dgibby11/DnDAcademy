@@ -1,0 +1,222 @@
+[
+  {
+    "id": "gundren_rockseeker",
+    "name": "Gundren Rockseeker",
+    "type": "npc",
+    "category": "Key NPCs",
+    "contentType": "html",
+    "contentFile": "content/npcs/gundren_rockseeker.html",
+    "visibility": "player",
+    "related": ["sildar_hallwinter", "tharden_rockseeker", "nundro_rockseeker", "wave_echo_cave", "wave_echo_cave_location", "fate_of_phandelver_pact"],
+    "tags": ["dwarf", "patron", "rockseeker"]
+  },
+  {
+    "id": "sildar_hallwinter",
+    "name": "Sildar Hallwinter",
+    "type": "npc",
+    "category": "Key NPCs",
+    "contentType": "html",
+    "contentFile": "content/npcs/sildar_hallwinter.html",
+    "visibility": "player",
+    "related": ["gundren_rockseeker", "lords_alliance", "iarno_albrek", "cragmaw_hideout"],
+    "tags": ["human", "warrior", "lords-alliance"]
+  },
+  {
+    "id": "iarno_albrek",
+    "name": "Iarno Albrek (Glasstaff)",
+    "type": "npc",
+    "category": "Villains",
+    "contentType": "html",
+    "contentFile": "content/npcs/iarno_albrek.html",
+    "visibility": "dm-only",
+    "related": ["redbrands", "redbrand_hideout", "nezznar_black_spider", "lords_alliance", "sildar_hallwinter", "staff_of_defense", "glasstaff_identity"],
+    "tags": ["human", "wizard", "villain", "redbrand"]
+  },
+  {
+    "id": "nezznar_black_spider",
+    "name": "Nezznar, the Black Spider",
+    "type": "npc",
+    "category": "Villains",
+    "contentType": "html",
+    "contentFile": "content/npcs/nezznar_black_spider.html",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave", "cragmaw_tribe", "iarno_albrek", "spider_staff", "black_spider_identity", "forge_of_spells"],
+    "tags": ["drow", "villain", "black-spider"]
+  },
+  {
+    "id": "king_grol",
+    "name": "King Grol",
+    "type": "npc",
+    "category": "Villains",
+    "contentType": "html",
+    "contentFile": "content/npcs/king_grol.html",
+    "visibility": "dm-only",
+    "related": ["cragmaw_castle", "cragmaw_tribe", "gundren_rockseeker", "nezznar_black_spider"],
+    "tags": ["bugbear", "villain", "cragmaw"]
+  },
+  {
+    "id": "klarg",
+    "name": "Klarg",
+    "type": "npc",
+    "category": "Villains",
+    "contentType": "html",
+    "contentFile": "content/npcs/klarg.html",
+    "visibility": "dm-only",
+    "related": ["cragmaw_hideout", "cragmaw_tribe"],
+    "tags": ["bugbear", "cragmaw"]
+  },
+  {
+    "id": "yeemik",
+    "name": "Yeemik",
+    "type": "npc",
+    "category": "Villains",
+    "contentType": "html",
+    "contentFile": "content/npcs/yeemik.html",
+    "visibility": "dm-only",
+    "related": ["cragmaw_hideout", "cragmaw_tribe", "sildar_hallwinter", "klarg"],
+    "tags": ["goblin", "cragmaw"]
+  },
+  {
+    "id": "toblen_stonehill",
+    "name": "Toblen Stonehill",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/toblen_stonehill.html",
+    "visibility": "player",
+    "related": ["stonehill_inn", "phandalin"],
+    "tags": ["human", "innkeeper"]
+  },
+  {
+    "id": "elmar_barthen",
+    "name": "Elmar Barthen",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/elmar_barthen.html",
+    "visibility": "player",
+    "related": ["barthens_provisions", "phandalin", "gundren_rockseeker"],
+    "tags": ["human", "merchant"]
+  },
+  {
+    "id": "linene_graywind",
+    "name": "Linene Graywind",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/linene_graywind.html",
+    "visibility": "player",
+    "related": ["lionshield_coster", "phandalin"],
+    "tags": ["human", "merchant"]
+  },
+  {
+    "id": "halia_thornton",
+    "name": "Halia Thornton",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/halia_thornton.html",
+    "visibility": "player",
+    "related": ["phandalin_miners_exchange", "phandalin", "zhentarim", "iarno_albrek"],
+    "tags": ["human", "zhentarim", "guildmaster"]
+  },
+  {
+    "id": "sister_garaele",
+    "name": "Sister Garaele",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/sister_garaele.html",
+    "visibility": "player",
+    "related": ["shrine_of_luck", "phandalin", "harpers", "agatha", "bowgentles_spellbook"],
+    "tags": ["elf", "cleric", "harpers"]
+  },
+  {
+    "id": "daran_edermath",
+    "name": "Daran Edermath",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/daran_edermath.html",
+    "visibility": "player",
+    "related": ["edermath_orchard", "phandalin", "order_of_the_gauntlet", "old_owl_well"],
+    "tags": ["half-elf", "retired-adventurer", "order-gauntlet"]
+  },
+  {
+    "id": "qelline_alderleaf",
+    "name": "Qelline Alderleaf",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/qelline_alderleaf.html",
+    "visibility": "player",
+    "related": ["alderleaf_farm", "phandalin", "reidoth"],
+    "tags": ["halfling", "farmer"]
+  },
+  {
+    "id": "harbin_wester",
+    "name": "Harbin Wester",
+    "type": "npc",
+    "category": "Phandalin Locals",
+    "contentType": "html",
+    "contentFile": "content/npcs/harbin_wester.html",
+    "visibility": "player",
+    "related": ["townmasters_hall", "phandalin", "wyvern_tor"],
+    "tags": ["human", "townmaster", "coward"]
+  },
+  {
+    "id": "agatha",
+    "name": "Agatha",
+    "type": "npc",
+    "category": "Notable Creatures",
+    "contentType": "html",
+    "contentFile": "content/npcs/agatha.html",
+    "visibility": "dm-only",
+    "related": ["conyberry", "sister_garaele", "bowgentles_spellbook"],
+    "tags": ["banshee", "undead"]
+  },
+  {
+    "id": "reidoth",
+    "name": "Reidoth",
+    "type": "npc",
+    "category": "Notable Creatures",
+    "contentType": "html",
+    "contentFile": "content/npcs/reidoth.html",
+    "visibility": "dm-only",
+    "related": ["ruins_of_thundertree", "emerald_enclave", "qelline_alderleaf", "cragmaw_castle"],
+    "tags": ["druid", "emerald-enclave", "human"]
+  },
+  {
+    "id": "hamun_kost",
+    "name": "Hamun Kost",
+    "type": "npc",
+    "category": "Notable Creatures",
+    "contentType": "html",
+    "contentFile": "content/npcs/hamun_kost.html",
+    "visibility": "dm-only",
+    "related": ["old_owl_well"],
+    "tags": ["red-wizard", "thay", "human"]
+  },
+  {
+    "id": "tharden_rockseeker",
+    "name": "Tharden Rockseeker",
+    "type": "npc",
+    "category": "Key NPCs",
+    "contentType": "html",
+    "contentFile": "content/npcs/tharden_rockseeker.html",
+    "visibility": "dm-only",
+    "related": ["gundren_rockseeker", "nundro_rockseeker", "wave_echo_cave", "hew"],
+    "tags": ["dwarf", "dead", "rockseeker"]
+  },
+  {
+    "id": "nundro_rockseeker",
+    "name": "Nundro Rockseeker",
+    "type": "npc",
+    "category": "Key NPCs",
+    "contentType": "html",
+    "contentFile": "content/npcs/nundro_rockseeker.html",
+    "visibility": "dm-only",
+    "related": ["gundren_rockseeker", "tharden_rockseeker", "wave_echo_cave"],
+    "tags": ["dwarf", "prisoner", "rockseeker"]
+  }
+]

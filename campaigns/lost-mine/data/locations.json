@@ -1,0 +1,348 @@
+[
+  {
+    "id": "phandalin",
+    "name": "Phandalin",
+    "type": "location",
+    "category": "Towns",
+    "contentType": "html",
+    "contentFile": "content/locations/phandalin.html",
+    "visibility": "player",
+    "related": [
+      "stonehill_inn", "barthens_provisions", "lionshield_coster",
+      "phandalin_miners_exchange", "shrine_of_luck", "townmasters_hall",
+      "sleeping_giant", "alderleaf_farm", "edermath_orchard", "tresendar_manor",
+      "redbrand_hideout", "toblen_stonehill", "elmar_barthen", "linene_graywind",
+      "halia_thornton", "sister_garaele", "daran_edermath", "qelline_alderleaf",
+      "harbin_wester", "redbrands", "harpers", "lords_alliance",
+      "order_of_the_gauntlet", "zhentarim", "emerald_enclave",
+      "glasstaff_identity", "mirnas_heirloom", "bowgentles_spellbook"
+    ],
+    "environment": {
+      "architecture": "Rough-hewn stone and timber buildings along muddy tracks. Burned-out ruins at the eastern edge speak to a violent past.",
+      "activity": "Miners, farmers, and laborers move through town. Redbrand ruffians loiter near the Sleeping Giant, eyeing visitors.",
+      "sensory": "Smell of woodsmoke, horse dung, and fresh-baked bread. The creak of wagon wheels on packed earth.",
+      "lighting": "Lanterns lit at dusk; most of the town dark and quiet by the second hour of night."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 12", "detail": "Redbrand thugs at the Sleeping Giant watching strangers arrive." },
+      { "roll": "Insight DC 14", "detail": "Townspeople avoid the eastern end of town near Tresendar Manor." },
+      { "roll": "History DC 10", "detail": "Phandalin was sacked by orc raiders a century ago; it only recently resettled." }
+    ]
+  },
+  {
+    "id": "stonehill_inn",
+    "name": "Stonehill Inn",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/stonehill_inn.html",
+    "visibility": "player",
+    "related": ["toblen_stonehill", "phandalin", "sildar_hallwinter"],
+    "environment": {
+      "activity": "Travelers, miners, and off-duty workers drinking and eating. A fire crackles in the common room hearth.",
+      "sensory": "Smell of roasting meat, pipeweed smoke, and spilled ale. Murmur of quiet conversation."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 10", "detail": "Locals at the bar whispering about Redbrand trouble and disappearances." },
+      { "roll": "Persuasion (Toblen)", "detail": "Toblen shares rumors: Redbrands, Sildar, and the road dangers north." }
+    ]
+  },
+  {
+    "id": "barthens_provisions",
+    "name": "Barthen's Provisions",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/barthens_provisions.html",
+    "visibility": "player",
+    "related": ["elmar_barthen", "phandalin", "gundren_rockseeker"],
+    "environment": {
+      "architecture": "Large trading post, the biggest building in town. Shelves stocked with mining gear, trail rations, rope, lanterns, and basic equipment.",
+      "activity": "Miners picking up supplies before a shift; Elmar tallying ledgers behind the counter."
+    }
+  },
+  {
+    "id": "lionshield_coster",
+    "name": "Lionshield Coster",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/lionshield_coster.html",
+    "visibility": "player",
+    "related": ["linene_graywind", "phandalin"],
+    "environment": {
+      "architecture": "Sturdy warehouse with a painted sign: a blue lion on white background. Armour and weapons displayed inside.",
+      "activity": "Linene Graywind inspects goods and greets customers with wariness."
+    }
+  },
+  {
+    "id": "phandalin_miners_exchange",
+    "name": "Phandalin Miner's Exchange",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/phandalin_miners_exchange.html",
+    "visibility": "player",
+    "related": ["halia_thornton", "phandalin", "zhentarim", "glasstaff_identity"],
+    "environment": {
+      "architecture": "Large hall where miners register their claims and sell ore. Maps of local mine shafts cover one wall.",
+      "activity": "Halia Thornton sits behind a desk, politely but coolly observing everyone who enters."
+    }
+  },
+  {
+    "id": "shrine_of_luck",
+    "name": "Shrine of Luck",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/shrine_of_luck.html",
+    "visibility": "player",
+    "related": ["sister_garaele", "phandalin", "harpers", "agatha", "bowgentles_spellbook"],
+    "environment": {
+      "architecture": "Small stone building dedicated to Tymora. Simple altar with a few coin offerings.",
+      "sensory": "Incense and the faint sound of wind chimes."
+    }
+  },
+  {
+    "id": "townmasters_hall",
+    "name": "Townmaster's Hall",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/townmasters_hall.html",
+    "visibility": "player",
+    "related": ["harbin_wester", "phandalin"],
+    "environment": {
+      "architecture": "Square stone building doubling as a jail (one crude cell in the back). A notice board outside lists wanted bounties.",
+      "activity": "Harbin Wester tries to look busy and avoid confrontation."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 10", "detail": "Notice board: 500 gp bounty for orc ears from Wyvern Tor." }
+    ]
+  },
+  {
+    "id": "sleeping_giant",
+    "name": "Sleeping Giant Tap House",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/sleeping_giant.html",
+    "visibility": "player",
+    "related": ["redbrands", "phandalin"],
+    "environment": {
+      "architecture": "Dingy, low-roofed taphouse frequented by Redbrand ruffians. A half-ogre bartender glowers at the door.",
+      "sensory": "Stale beer, unwashed bodies, and the acrid tang of cheap tallow candles."
+    }
+  },
+  {
+    "id": "alderleaf_farm",
+    "name": "Alderleaf Farm",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/alderleaf_farm.html",
+    "visibility": "player",
+    "related": ["qelline_alderleaf", "phandalin", "reidoth"],
+    "environment": {
+      "architecture": "Prosperous halfling farmstead on the south edge of town. Tidy herb garden, chickens pecking in the yard.",
+      "sensory": "Fresh earth, lavender, and woodsmoke from a small kitchen fire."
+    }
+  },
+  {
+    "id": "edermath_orchard",
+    "name": "Edermath Orchard",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/edermath_orchard.html",
+    "visibility": "player",
+    "related": ["daran_edermath", "phandalin", "order_of_the_gauntlet", "old_owl_well"],
+    "environment": {
+      "architecture": "Old apple orchard and cottage on the western edge of town. A retired adventurer's home, well-kept.",
+      "sensory": "Smell of apple blossoms or ripening fruit depending on the season."
+    }
+  },
+  {
+    "id": "tresendar_manor",
+    "name": "Tresendar Manor",
+    "type": "location",
+    "category": "Phandalin",
+    "contentType": "html",
+    "contentFile": "content/locations/tresendar_manor.html",
+    "visibility": "player",
+    "related": ["redbrand_hideout", "phandalin", "redbrands"],
+    "environment": {
+      "architecture": "Burned-out ruins of an old manor on the eastern hill. Walls still standing, roof collapsed. Entry to the Redbrand Hideout below.",
+      "sensory": "Smell of old ash, rotting wood, and damp stone. The sound of distant dripping water."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 14", "detail": "A trapdoor hidden under debris leads to the cellar complex below." }
+    ]
+  },
+  {
+    "id": "redbrand_hideout",
+    "name": "Redbrand Hideout",
+    "type": "location",
+    "category": "Dungeons",
+    "contentType": "html",
+    "contentFile": "content/locations/redbrand_hideout.html",
+    "visibility": "dm-only",
+    "related": [
+      "tresendar_manor", "iarno_albrek", "redbrands", "nothic",
+      "talon", "staff_of_defense", "glasstaff_identity"
+    ],
+    "environment": {
+      "architecture": "Underground cellar complex carved from natural rock. Crevasse with rickety bridge, a crypt, cells, and Glasstaff's wizard lab.",
+      "sensory": "Damp stone, mildew, distant sound of water below. The occasional groan from prisoners."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 15", "detail": "The nothic watches from the far side of the crevasse, sensing thoughts." },
+      { "roll": "Investigation DC 10 (Glasstaff's lab)", "detail": "A letter from the Black Spider names Iarno as an agent and mentions the Lost Mine." }
+    ]
+  },
+  {
+    "id": "cragmaw_hideout",
+    "name": "Cragmaw Hideout",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/cragmaw_hideout.html",
+    "visibility": "dm-only",
+    "related": [
+      "klarg", "yeemik", "cragmaw_tribe", "sildar_hallwinter",
+      "gundren_rockseeker", "wave_echo_cave_location"
+    ],
+    "environment": {
+      "architecture": "Cave complex hidden in a hillside along Triboar Trail, overgrown with thorn bushes. Goblin lair with three main chambers.",
+      "sensory": "Stench of goblins, wet animal hide, and cookfire smoke. Sound of wolves chained in the dark."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 12 (outside)", "detail": "A trip wire stretched across the path — connected to empty cans and pots." },
+      { "roll": "Stealth (to advance)", "detail": "Goblins at the cave mouth; sentries in the woods 90 feet back." }
+    ]
+  },
+  {
+    "id": "cragmaw_castle",
+    "name": "Cragmaw Castle",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/cragmaw_castle.html",
+    "visibility": "dm-only",
+    "related": [
+      "king_grol", "cragmaw_tribe", "gundren_rockseeker",
+      "nezznar_black_spider", "wave_echo_cave_location"
+    ],
+    "environment": {
+      "architecture": "Crumbling castle ruin in the Neverwinter Wood, occupied by the Cragmaw tribe. Seven main towers, roofs partially collapsed, hobgoblins at the entrance.",
+      "sensory": "Smell of unwashed creatures, straw, and old stone. Distant sound of drums and guttural argument."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 14 (approach)", "detail": "Hobgoblin sentries in the gatehouse towers — alert and armed." },
+      { "roll": "Investigation DC 10 (King Grol's room)", "detail": "A map of Phandalin, with Tresendar Manor marked. A note in Undercommon from the Black Spider." }
+    ]
+  },
+  {
+    "id": "wave_echo_cave",
+    "name": "Wave Echo Cave",
+    "type": "location",
+    "category": "Dungeons",
+    "contentType": "html",
+    "contentFile": "content/locations/wave_echo_cave.html",
+    "visibility": "dm-only",
+    "related": [
+      "nezznar_black_spider", "mormesk", "flameskull", "spectator",
+      "lightbringer", "dragonguard", "hew", "spider_staff",
+      "tharden_rockseeker", "nundro_rockseeker", "gundren_rockseeker",
+      "forge_of_spells", "wave_echo_cave_location", "fate_of_phandelver_pact"
+    ],
+    "environment": {
+      "architecture": "Vast cavern system, flooded in sections. Waves of water crash against the rock walls in rhythmic pulses. Ancient dwarven and gnomish mine workings, now haunted by undead.",
+      "sensory": "The rhythmic boom of waves deep underground. Cold, damp air. Faint magical phosphorescence on the cave walls near the Forge of Spells.",
+      "lighting": "Near-total darkness except for the Forge of Spells' eerie green glow."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 15", "detail": "The flameskull patrols between rooms 18 and 19 on a fixed route." },
+      { "roll": "Arcana DC 10 (at the Forge)", "detail": "The Forge of Spells still functions — enchantments can be applied to weapons and armor here." }
+    ]
+  },
+  {
+    "id": "ruins_of_thundertree",
+    "name": "Ruins of Thundertree",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/ruins_of_thundertree.html",
+    "visibility": "dm-only",
+    "related": ["venomfang", "reidoth", "emerald_enclave", "cragmaw_castle"],
+    "environment": {
+      "architecture": "Ruined town at the foot of Mount Hotenow, destroyed thirty years ago when the volcano erupted. Half-collapsed buildings choked with twig blights and undead.",
+      "sensory": "Ash drifts on the wind. Unnatural silence broken by the rustle of dead vegetation. The distant creak of a dragon shifting in its tower.",
+      "lighting": "Perpetual grey overcast, ash filtering the light."
+    },
+    "curiosities": [
+      { "roll": "Perception DC 12", "detail": "Fresh claw marks on stone — too large for any local creature." },
+      { "roll": "Nature DC 14", "detail": "The twig blights move in organised patterns as if directed by an unseen will." }
+    ]
+  },
+  {
+    "id": "old_owl_well",
+    "name": "Old Owl Well",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/old_owl_well.html",
+    "visibility": "dm-only",
+    "related": ["hamun_kost", "daran_edermath"],
+    "environment": {
+      "architecture": "Ruined watchtower from the old empire of Netheril, in the hills northeast of Phandalin. A ring of twelve zombies shambles around the perimeter.",
+      "sensory": "Faint smell of decay. A Red Wizard's pavilion tent pitched beside the well — incongruously orderly amid the ruins."
+    }
+  },
+  {
+    "id": "wyvern_tor",
+    "name": "Wyvern Tor",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/wyvern_tor.html",
+    "visibility": "dm-only",
+    "related": ["harbin_wester"],
+    "environment": {
+      "architecture": "Rocky tor in the hills east of Triboar Trail. An orc war band has made camp in a cave on the southeast face.",
+      "sensory": "Reek of orc musk. Crude bone-and-hide totems around the entrance."
+    }
+  },
+  {
+    "id": "conyberry",
+    "name": "Conyberry & Agatha's Lair",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/conyberry.html",
+    "visibility": "dm-only",
+    "related": ["agatha", "sister_garaele", "bowgentles_spellbook"],
+    "environment": {
+      "architecture": "Abandoned village, crumbling to rubble. Agatha's lair is a decrepit cottage deep in the nearby forest, its interior kept tidy by supernatural will.",
+      "sensory": "Silence. No birdsong. Inside Agatha's lair: the smell of old perfume and parchment, candles burning with cold blue flame."
+    }
+  },
+  {
+    "id": "triboar_trail",
+    "name": "Triboar Trail",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/triboar_trail.html",
+    "visibility": "player",
+    "related": [
+      "cragmaw_hideout", "phandalin", "cragmaw_castle",
+      "old_owl_well", "wyvern_tor", "conyberry", "ruins_of_thundertree"
+    ],
+    "environment": {
+      "architecture": "Rutted dirt road cutting through the Sword Coast wilderness, connecting Triboar to the coast. Infrequently traveled.",
+      "sensory": "Wind in the pines, birdsong, the occasional creak of a wagon. The road feels exposed — watchers in the trees are possible.",
+      "weather": "Highly variable; fog common in mornings near the river."
+    }
+  }
+]

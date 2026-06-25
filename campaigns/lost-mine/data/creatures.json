@@ -1,0 +1,72 @@
+[
+  {
+    "id": "venomfang",
+    "name": "Venomfang",
+    "type": "creature",
+    "category": "Named Creatures",
+    "contentType": "html",
+    "contentFile": "content/creatures/venomfang.html",
+    "visibility": "dm-only",
+    "related": ["ruins_of_thundertree"],
+    "links": [
+      { "label": "Young Green Dragon — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/16986-young-green-dragon" }
+    ],
+    "tags": ["dragon", "green", "young", "thundertree"]
+  },
+  {
+    "id": "mormesk",
+    "name": "Mormesk the Wraith",
+    "type": "creature",
+    "category": "Named Creatures",
+    "contentType": "html",
+    "contentFile": "content/creatures/mormesk.html",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave"],
+    "links": [
+      { "label": "Wraith — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/17064-wraith" }
+    ],
+    "tags": ["undead", "wraith", "wave-echo-cave"]
+  },
+  {
+    "id": "flameskull",
+    "name": "Flameskull",
+    "type": "creature",
+    "category": "Named Creatures",
+    "contentType": "html",
+    "contentFile": "content/creatures/flameskull.html",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave"],
+    "links": [
+      { "label": "Flameskull — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/16862-flameskull" }
+    ],
+    "tags": ["undead", "skull", "wave-echo-cave"]
+  },
+  {
+    "id": "spectator",
+    "name": "Spectator",
+    "type": "creature",
+    "category": "Named Creatures",
+    "contentType": "html",
+    "contentFile": "content/creatures/spectator.html",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave", "forge_of_spells"],
+    "links": [
+      { "label": "Spectator — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/17006-spectator" }
+    ],
+    "tags": ["beholder-kin", "guard", "forge-of-spells"]
+  },
+  {
+    "id": "nothic",
+    "name": "Nothic",
+    "type": "creature",
+    "category": "Named Creatures",
+    "contentType": "html",
+    "contentFile": "content/creatures/nothic.html",
+    "visibility": "dm-only",
+    "related": ["redbrand_hideout", "talon"],
+    "links": [
+      { "label": "Nothic — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/16965-nothic" }
+    ],
+    "tags": ["aberration", "redbrand", "crevasse"]
+  }
+]

@@ -148,7 +148,8 @@
       : [...(session.related || [])];
 
     try {
-      const r = await fetch(session.contentFile);
+      const base = window.CAMPAIGN_BASE ? window.CAMPAIGN_BASE + '/' : '';
+      const r = await fetch(base + session.contentFile);
       if (r.ok) {
         const html = await r.text();
         const doc  = new DOMParser().parseFromString(html, 'text/html');
@@ -263,7 +264,8 @@
     _detailBody.innerHTML = '<p class="sr-loading">Loading…</p>';
     _detailBody.scrollTop = 0;
 
-    fetch(entity.contentFile)
+    const base = window.CAMPAIGN_BASE ? window.CAMPAIGN_BASE + '/' : '';
+    fetch(base + entity.contentFile)
       .then((r) => r.ok ? r.text() : '<p class="sr-empty">Content file not found.</p>')
       .then((html) => {
         _detailBody.innerHTML = html;

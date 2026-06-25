@@ -270,11 +270,12 @@
   function makeHeader(isRoot, loc) {
     const hdr = el('div', 'dash-location-header');
 
-    hdr.appendChild(el('h2', 'dash-location-title', loc ? loc.name : 'FAIL Academy'));
+    hdr.appendChild(el('h2', 'dash-location-title', loc ? loc.name : window.CAMPAIGN.name));
 
     const meta = el('div', 'dash-location-meta');
+    const subtitle = window.CAMPAIGN.subtitle || '';
     meta.textContent = isRoot
-      ? 'Faculty of Arms, Inquiry & Lore — select a location to enter it'
+      ? (subtitle ? subtitle + ' — select a location to enter it' : 'Select a location to enter it')
       : (['LOCATION', loc && loc.category].filter(Boolean).join(' · '));
     hdr.appendChild(meta);
 

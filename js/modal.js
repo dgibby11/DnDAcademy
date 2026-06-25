@@ -194,7 +194,8 @@
     updateLinksBar(loc);
 
     const type = loc.contentType;
-    const file = loc.contentFile;
+    const base = window.CAMPAIGN_BASE ? window.CAMPAIGN_BASE + '/' : '';
+    const file = loc.contentFile ? base + loc.contentFile : '';
 
     if (type === 'image') {
       bodyEl.innerHTML = `<div class="modal-image"><img src="${file}" alt="${loc.name}" /></div>`;

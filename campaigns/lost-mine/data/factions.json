@@ -1,0 +1,79 @@
+[
+  {
+    "id": "lords_alliance",
+    "name": "Lords' Alliance",
+    "type": "faction",
+    "category": "Major Factions",
+    "contentType": "html",
+    "contentFile": "content/factions/lords_alliance.html",
+    "visibility": "player",
+    "related": ["sildar_hallwinter", "iarno_albrek"],
+    "tags": ["political", "order", "sword-coast"]
+  },
+  {
+    "id": "harpers",
+    "name": "The Harpers",
+    "type": "faction",
+    "category": "Major Factions",
+    "contentType": "html",
+    "contentFile": "content/factions/harpers.html",
+    "visibility": "player",
+    "related": ["sister_garaele"],
+    "tags": ["secret", "good", "information"]
+  },
+  {
+    "id": "order_of_the_gauntlet",
+    "name": "Order of the Gauntlet",
+    "type": "faction",
+    "category": "Major Factions",
+    "contentType": "html",
+    "contentFile": "content/factions/order_of_the_gauntlet.html",
+    "visibility": "player",
+    "related": ["daran_edermath"],
+    "tags": ["holy", "militant", "lawful"]
+  },
+  {
+    "id": "emerald_enclave",
+    "name": "Emerald Enclave",
+    "type": "faction",
+    "category": "Major Factions",
+    "contentType": "html",
+    "contentFile": "content/factions/emerald_enclave.html",
+    "visibility": "player",
+    "related": ["reidoth"],
+    "tags": ["nature", "druids", "rangers"]
+  },
+  {
+    "id": "zhentarim",
+    "name": "The Zhentarim",
+    "type": "faction",
+    "category": "Major Factions",
+    "contentType": "html",
+    "contentFile": "content/factions/zhentarim.html",
+    "visibility": "player",
+    "related": ["halia_thornton"],
+    "tags": ["criminal", "mercenary", "shadow"]
+  },
+  {
+    "id": "cragmaw_tribe",
+    "name": "Cragmaw Tribe",
+    "type": "faction",
+    "category": "Antagonists",
+    "contentType": "html",
+    "contentFile": "content/factions/cragmaw_tribe.html",
+    "visibility": "dm-only",
+    "related": ["klarg", "king_grol", "yeemik", "cragmaw_hideout", "cragmaw_castle", "nezznar_black_spider"],
+    "tags": ["goblinoid", "enemy", "cragmaw"]
+  },
+  {
+    "id": "redbrands",
+    "name": "Redbrand Ruffians",
+    "type": "faction",
+    "category": "Antagonists",
+    "contentType": "html",
+    "contentFile": "content/factions/redbrands.html",
+    "visibility": "dm-only",
+    "related": ["iarno_albrek", "redbrand_hideout", "tresendar_manor", "nothic", "nezznar_black_spider"],
+    "tags": ["criminal", "enemy", "phandalin"]
+  }
+]

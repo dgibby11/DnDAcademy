@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campaign Dossier — Launcher</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    #launcher-main {
+      max-width: 680px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    #launcher-heading {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-muted, #888);
+      margin: 0 0 1.5rem;
+    }
+    #campaign-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .campaign-card {
+      display: block;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg, #1c1a14);
+      border: 1px solid var(--border, #3a3020);
+      border-radius: 4px;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .campaign-card:hover {
+      border-color: var(--accent, #c8a84b);
+      background: var(--card-bg-hover, #22200f);
+    }
+    .campaign-card-name {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text, #e8e0c8);
+      margin-bottom: 0.2rem;
+    }
+    .campaign-card-sub {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted, #888);
+    }
+    #launcher-status {
+      font-size: 0.82rem;
+      color: var(--text-muted, #888);
+      padding: 1rem 0;
+    }
+    #launcher-error {
+      color: #c0392b;
+    }
+  </style>
+</head>
+<body>
+  <header id="topbar">
+    <div class="bar-left">
+      <div class="title-block">
+        <h1>Campaign Dossier</h1>
+        <p class="subtitle">Select a campaign to begin</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="launcher-main">
+    <p id="launcher-heading">Available Campaigns</p>
+    <div id="campaign-grid"></div>
+    <p id="launcher-status">Loading…</p>
+    <p id="launcher-error" hidden></p>
+  </main>
+
+  <script>
+    (function () {
+      const grid   = document.getElementById('campaign-grid');
+      const status = document.getElementById('launcher-status');
+      const errEl  = document.getElementById('launcher-error');
+
+      fetch('campaigns/index.json')
+        .then(function (r) {
+          if (!r.ok) throw new Error('HTTP ' + r.status);
+          return r.json();
+        })
+        .then(function (campaigns) {
+          status.hidden = true;
+          if (!campaigns.length) {
+            status.hidden = false;
+            status.textContent = 'No campaigns found in campaigns/index.json.';
+            return;
+          }
+          campaigns.forEach(function (c) {
+            var a = document.createElement('a');
+            a.href = 'index.html?campaign=' + encodeURIComponent(c.id);
+            a.className = 'campaign-card';
+            var name = document.createElement('span');
+            name.className = 'campaign-card-name';
+            name.textContent = c.name || c.id;
+            a.appendChild(name);
+            if (c.subtitle) {
+              var sub = document.createElement('span');
+              sub.className = 'campaign-card-sub';
+              sub.textContent = c.subtitle;
+              a.appendChild(sub);
+            }
+            grid.appendChild(a);
+          });
+        })
+        .catch(function (err) {
+          status.hidden = true;
+          errEl.hidden  = false;
+          errEl.textContent = 'Could not load campaign list: ' + err.message +
+            '. Make sure you are running via start-map.bat, not opening the file directly.';
+        });
+    })();
+  </script>
+</body>
+</html>

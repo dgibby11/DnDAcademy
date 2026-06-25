@@ -9,6 +9,6 @@
   "github": {
     "owner": "dgibby11",
     "repo": "DnDAcademy",
-    "stateFile": "campaign-state.json"
+    "stateFile": "campaigns/fail-academy/campaign-state.json"
   }
 }

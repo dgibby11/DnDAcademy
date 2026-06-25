@@ -1,40 +1,52 @@
 // data.js — loads campaign config + entity data.
 //
-// window.CAMPAIGN is set synchronously at startup (so scripts loaded after
-// this file — state.js, dashboard.js, etc. — can read it immediately without
-// waiting for the async fetch). campaign.json is then fetched to override any
-// of those defaults, letting a repo fork configure the app by editing only
-// campaign.json rather than touching JS files.
+// Reads ?campaign=<id> from the URL (defaults to 'fail-academy') and sets:
+//   window.CAMPAIGN_BASE  'campaigns/<id>'  — prefix for all asset/data fetches
+//   window.CAMPAIGN       campaign configuration object (sync defaults, then overridden
+//                         by campaigns/<id>/campaign.json)
+//   window.ENTITIES       merged array of all entity objects
 //
-// Exposes:
-//   window.CAMPAIGN                  campaign configuration object
-//   window.ENTITIES                  merged array of all entity objects
-//   window.App.isDM()                is DM mode currently on?
-//   window.App.setDM(on)             set DM mode, fires `dm:changed`
-//   window.App.toggleDM()            flip DM mode
-//   window.App.isVisible(entity)     should this entity show right now?
-//   window.App.byId(id)              look up an entity by id (or undefined)
+// window.App methods:
+//   isDM()               is DM mode currently on?
+//   setDM(on)            set DM mode, fires `dm:changed`
+//   toggleDM()           flip DM mode
+//   isVisible(entity)    should this entity show right now?
+//   byId(id)             look up an entity by id (or undefined)
 //
 // Events dispatched on `document`:
 //   entities:ready  { entities }     data finished loading
 //   dm:changed      { on }           DM mode toggled
 
 (function () {
+  // ── Campaign selection ─────────────────────────────────────────────────────
+  const urlParams  = new URLSearchParams(window.location.search);
+  const campaignId = urlParams.get('campaign') || 'fail-academy';
+  const CAMPAIGN_BASE = 'campaigns/' + campaignId;
+  window.CAMPAIGN_BASE = CAMPAIGN_BASE;
+
   // ── Campaign config ────────────────────────────────────────────────────────
   // Synchronous defaults — scripts that load immediately after data.js (state.js,
   // dashboard.js) can read window.CAMPAIGN without waiting for a fetch.
   window.CAMPAIGN = {
-    id:           'fail-academy',
-    name:         'FAIL Academy',
-    subtitle:     'Faculty of Arms, Inquiry & Lore',
-    mapImage:     'assets/FUCKS_map.png',
+    id:           campaignId,
+    name:         'Campaign Dossier',
+    subtitle:     '',
+    mapImage:     CAMPAIGN_BASE + '/assets/map.png',
     rootLocation: 'campus_root',
-    storageKey:   'fail-academy.v1',
+    storageKey:   campaignId + '.v1',
     dmPassHash:   '',
     github: { owner: '', repo: '', stateFile: 'campaign-state.json' },
   };
 
+  // Resolve a path written in campaign.json relative to the campaign root.
+  // Absolute URLs and already-rooted paths pass through unchanged.
+  function resolveCampaignPath(p) {
+    if (!p || p.startsWith('http') || p.startsWith('/')) return p;
+    return CAMPAIGN_BASE + '/' + p;
+  }
+
   function applyConfig(cfg) {
+    if (cfg.mapImage) cfg.mapImage = resolveCampaignPath(cfg.mapImage);
     Object.assign(window.CAMPAIGN, cfg);
     document.title = window.CAMPAIGN.name + ' — Campaign Dossier';
     const h1  = document.querySelector('#topbar h1');
@@ -43,8 +55,8 @@
     if (sub) sub.textContent = window.CAMPAIGN.subtitle;
   }
 
-  // Fetch campaign.json to override defaults (non-fatal if missing).
-  fetch('campaign.json')
+  // Fetch this campaign's config (non-fatal if missing).
+  fetch(CAMPAIGN_BASE + '/campaign.json')
     .then((r) => (r.ok ? r.json() : {}))
     .then((cfg) => applyConfig(cfg))
     .catch(() => applyConfig({}));
@@ -80,7 +92,7 @@
     document.dispatchEvent(
       new CustomEvent('entities:ready', { detail: { entities } })
     );
-    console.info(`[data] Loaded ${entities.length} entit(ies).`);
+    console.info(`[data] Loaded ${entities.length} entit(ies) for campaign "${campaignId}".`);
   }
 
   function fail(err) {
@@ -88,7 +100,7 @@
       '[data] Could not load entity data.\n' +
         'If you opened index.html by double-clicking, your browser may be ' +
         'blocking local file access. Run the bundled server instead ' +
-        '(start-map.bat) and open http://localhost:8000/.\n' +
+        '(start-map.bat) and open http://localhost:8000/launcher.html.\n' +
         'Original error:',
       err
     );
@@ -98,7 +110,7 @@
 
   // Load the manifest, then every file it lists. A missing/broken individual
   // file is skipped (logged) rather than failing the whole load.
-  fetch('data/index.json')
+  fetch(CAMPAIGN_BASE + '/data/index.json')
     .then((res) => {
       if (!res.ok) throw new Error(`index.json HTTP ${res.status}`);
       return res.json();
@@ -107,7 +119,7 @@
       if (!Array.isArray(files)) throw new Error('index.json is not an array');
       return Promise.all(
         files.map((fn) =>
-          fetch(`data/${fn}`)
+          fetch(CAMPAIGN_BASE + '/data/' + fn)
             .then((r) => {
               if (!r.ok) throw new Error(`HTTP ${r.status}`);
               return r.json();
@@ -117,7 +129,7 @@
               return arr;
             })
             .catch((e) => {
-              console.warn(`[data] Skipped data/${fn}:`, e.message);
+              console.warn(`[data] Skipped ${CAMPAIGN_BASE}/data/${fn}:`, e.message);
               return [];
             })
         )

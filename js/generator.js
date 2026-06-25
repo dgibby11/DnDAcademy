@@ -8,7 +8,7 @@
 // UI: #generator-btn in topbar opens the generator panel.
 
 (function () {
-  const GEN_KEY = 'fucks.generated.v1';
+  const GEN_KEY = (window.CAMPAIGN.id || 'campaign') + '.generated.v1';
 
   // ── Storage ─────────────────────────────────────────────────────────────────
 
