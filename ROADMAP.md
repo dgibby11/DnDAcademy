@@ -45,69 +45,18 @@ Auto-detect approach: any multi-roll of d20 shows individual die values side-by-
 
 ---
 
-### 3. Import Process Overhaul
-**Status:** Not started  
-**Effort:** Large
-
-Current state: Curse of Strahd and Descent Into Avernus imports are sparse — bare entity stubs, weak cross-links, and content that doesn't reflect the actual source material well. The import pipeline (Google Docs → local HTML fragments) needs a systematic rethink.
-
-**Problems to solve:**
-- Entity coverage is incomplete (major NPCs, locations, factions missing or stubbed)
-- Content files are thin — not enough detail to be useful at the table
-- Cross-links (`related[]` and `[[id]]` inline links) are sparse; the entity graph isn't navigable
-- No consistent template for what a "good" NPC, location, or faction entry looks like
-- No process for updating entries as the campaign progresses
-
-**Ideas to explore:**
-- Define a content standard per entity type (what fields/sections a complete entry has)
-- Build a richer import template or checklist for each campaign
-- Consider a semi-automated approach: structured Google Doc → JSON + HTML stub generator
-- Separate "lore entries" (static background) from "session notes" (DM scratch) more clearly
-
-This is the highest-leverage improvement for actual play value but requires the most upfront work. Tackle one campaign at a time.
-
----
-
-### 4. Location Bar — Consolidate into Dashboard Header
-**Status:** Not started  
-**Effort:** Small
-
-The location bar (`#location-bar`) sits below the top bar and above the dashboard panels, eating vertical space with information that duplicates or belongs in the dashboard header. Options:
-
-- Merge the "◎ Campaign Home / ◎ Location Name" indicator into `.dash-location-header` as a breadcrumb or subtitle
-- Move the ← Campaign Home back-button into the header as a button (already has a `Full Entry →` button there)
-- Move the time-of-day toggle into the header row (compact pill row)
-- Remove the separate location bar element entirely, recovering ~2rem of vertical space above the panels
-
-Goal: the four quadrant panels start higher on the page, with all navigation controls inline in the header.
-
----
-
-### 5. Images — Session Image Panel + Entity Portraits
-**Status:** Not started  
-**Effort:** Medium (per campaign) + Small (session panel layout)
-
-Two related tracks:
-
-**4a. Session runner image panel**  
-Split the bottom half of the session runner into thirds (mirroring the top three panels). The center bottom panel shows images associated with the session, cycled with ← → arrows. If the session has no images, the panel is hidden and the adjacent two panels expand to fill the space. Images would be stored as a `images: ["path/to/img.jpg", ...]` array on the session entity (or sourced from related entities with `contentType: "image"`). The layout change is small; the main effort is content — sourcing scene/encounter art.
-
-**4b. Entity image assets**  
-Add visual assets for high-value entities: town maps, NPC portraits, magic item art, set-piece location art.
-
-`contentType: "image"` already renders a full-width image in the modal — purely a content pipeline task. Priorities: recurring villains (Strahd, Zariel), key locations, party-acquired items.
-
----
-
 ## Icebox (easiest → hardest)
 
 - **Remove dashboard subtitle** — strip `campaign.subtitle` (e.g. "Sword Coast — Characters Level 1–5") from the `dash-location-header` meta line; one-line change in `makeHeader()`.
+- **Location bar → dashboard header** — merge location bar into the dash header (back button, time toggle inline); recover ~2rem of vertical space above the panels. Small JS/CSS change.
 - **App rename** — the tool has outgrown the "FAIL Academy" concept and is now a general D&D campaign dossier. Pick a new name; mechanical find/replace across HTML/JS/CSS.
 - **5e-bits API research** — evaluate https://5e-bits.github.io/docs/ for integration opportunities: spell lookup, monster stat blocks, equipment, classes/spells by level. Pure research, no code. Any API use must be gracefully optional (DM explicitly triggers; fails silently offline).
 - **Search improvements** — tag-based filtering, fuzzy match on existing search UI.
 - **Persistent DM state** — notes, revealed flags, session log (partially done via localStorage; needs UI to expose it cleanly).
+- **Session runner image panel** — split bottom of session runner into thirds; center panel cycles images (← →) linked to the session. Entity portrait rendering via `contentType:"image"` is already done; this is the session runner layout + content pipeline. Medium effort.
 - **Random generator expansion** — extend beyond NPC/item: encounter tables, weather, rumors, names.
 - **Player vs DM view** — full screen-safe player mode; DM toggle exists but content gating is not fully built out.
+- **Import process overhaul** — CoS and DiA are sparse stubs; define content standard per entity type, richer templates, semi-automate Google Doc → JSON+HTML stub. Tackle one campaign at a time. Large effort.
 - **Party overview page** — new panel/page: track party members, HP, conditions, inventory. Needs a data model and persistent state.
 
 ---
