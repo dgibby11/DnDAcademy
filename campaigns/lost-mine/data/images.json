@@ -1,23 +1,156 @@
 [
   {
-    "id": "lmop_region_map",
+    "id": "map_exterior_player",
     "name": "Region Map — Sword Coast",
     "type": "image",
     "category": "Maps",
     "contentType": "image",
-    "contentFile": "assets/region_map.jpg",
+    "contentFile": "assets/phandelver-map-exterior-player.jpg",
     "visibility": "player",
-    "related": [
-      "phandalin",
-      "triboar_trail",
-      "the_high_road",
-      "sword_mountains",
-      "icespire_peak"
-    ],
-    "tags": [
-      "map",
-      "region",
-      "sword-coast"
-    ]
+    "related": ["phandalin", "triboar_trail", "the_high_road", "sword_mountains", "icespire_peak", "ruins_of_thundertree", "conyberry", "old_owl_well"],
+    "tags": ["map", "region", "sword-coast"]
+  },
+  {
+    "id": "map_exterior_dm",
+    "name": "Region Map — DM (with secret locations)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-exterior-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["phandalin", "triboar_trail", "cragmaw_hideout", "cragmaw_castle", "wave_echo_cave", "wyvern_tor", "conyberry", "old_owl_well", "ruins_of_thundertree"],
+    "tags": ["map", "region", "sword-coast", "dm"]
+  },
+  {
+    "id": "map_phandalin_player",
+    "name": "Phandalin — Town Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-phandalin-player.jpg",
+    "visibility": "player",
+    "related": ["phandalin"],
+    "tags": ["map", "phandalin", "town"]
+  },
+  {
+    "id": "map_phandalin_dm",
+    "name": "Phandalin — Town Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-phandalin-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["phandalin"],
+    "tags": ["map", "phandalin", "town", "dm"]
+  },
+  {
+    "id": "map_cragmaw_hideout_player",
+    "name": "Cragmaw Hideout — Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-cragmaw-hideout-player.jpg",
+    "visibility": "player",
+    "related": ["cragmaw_hideout"],
+    "tags": ["map", "dungeon", "cragmaw"]
+  },
+  {
+    "id": "map_cragmaw_hideout_dm",
+    "name": "Cragmaw Hideout — Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-cragmaw-hideout-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["cragmaw_hideout"],
+    "tags": ["map", "dungeon", "cragmaw", "dm"]
+  },
+  {
+    "id": "map_redbrand_player",
+    "name": "Redbrand Hideout — Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-redbrand-player.jpg",
+    "visibility": "player",
+    "related": ["redbrand_hideout"],
+    "tags": ["map", "dungeon", "redbrand"]
+  },
+  {
+    "id": "map_redbrand_dm",
+    "name": "Redbrand Hideout — Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-redbrand-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["redbrand_hideout"],
+    "tags": ["map", "dungeon", "redbrand", "dm"]
+  },
+  {
+    "id": "map_cragmaw_castle_player",
+    "name": "Cragmaw Castle — Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-cragmaw-castle-player.jpg",
+    "visibility": "player",
+    "related": ["cragmaw_castle"],
+    "tags": ["map", "dungeon", "cragmaw"]
+  },
+  {
+    "id": "map_cragmaw_castle_dm",
+    "name": "Cragmaw Castle — Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-cragmaw-castle-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["cragmaw_castle"],
+    "tags": ["map", "dungeon", "cragmaw", "dm"]
+  },
+  {
+    "id": "map_thundertree_player",
+    "name": "Ruins of Thundertree — Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-thundertree-player.jpg",
+    "visibility": "player",
+    "related": ["ruins_of_thundertree"],
+    "tags": ["map", "wilderness", "thundertree"]
+  },
+  {
+    "id": "map_thundertree_dm",
+    "name": "Ruins of Thundertree — Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-thundertree-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["ruins_of_thundertree"],
+    "tags": ["map", "wilderness", "thundertree", "dm"]
+  },
+  {
+    "id": "map_wave_echo_cave_player",
+    "name": "Wave Echo Cave — Map",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-wave-echo-cave-player.jpg",
+    "visibility": "player",
+    "related": ["wave_echo_cave"],
+    "tags": ["map", "dungeon", "wave-echo-cave"]
+  },
+  {
+    "id": "map_wave_echo_cave_dm",
+    "name": "Wave Echo Cave — Map (DM)",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/phandelver-map-wave-echo-cave-dm.jpg",
+    "visibility": "dm-only",
+    "related": ["wave_echo_cave"],
+    "tags": ["map", "dungeon", "wave-echo-cave", "dm"]
   }
 ]

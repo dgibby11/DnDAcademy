@@ -25,7 +25,10 @@
       "cragmaw_tribe",
       "sildar_hallwinter",
       "gundren_rockseeker",
-      "phandalin"
+      "phandalin",
+      "map_exterior_player",
+      "map_phandalin_player",
+      "map_cragmaw_hideout_player"
     ]
   },
   {
@@ -78,7 +81,8 @@
       "lords_alliance",
       "glasstaff_identity",
       "mirnas_heirloom",
-      "fate_of_phandelver_pact"
+      "fate_of_phandelver_pact",
+      "map_redbrand_player"
     ]
   },
   {
@@ -120,7 +124,9 @@
       "harpers",
       "emerald_enclave",
       "order_of_the_gauntlet",
-      "zhentarim"
+      "zhentarim",
+      "map_thundertree_player",
+      "map_cragmaw_castle_player"
     ]
   },
   {
@@ -155,7 +161,8 @@
       "dragonguard",
       "hew",
       "spider_staff",
-      "fate_of_phandelver_pact"
+      "fate_of_phandelver_pact",
+      "map_wave_echo_cave_player"
     ]
   }
 ]

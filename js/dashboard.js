@@ -318,12 +318,9 @@
     return wrap;
   }
 
-  // ── Region map ────────────────────────────────────────────────────────────
+  // ── Map widget ────────────────────────────────────────────────────────────
 
-  function makeRegionMap() {
-    const entityId = window.CAMPAIGN.regionMapEntity;
-    if (!entityId) return null;
-    const entity = window.App.byId(entityId);
+  function makeMapWidget(entity) {
     if (!entity || !window.App.isVisible(entity)) return null;
     const src  = window.CAMPAIGN_BASE + '/' + entity.contentFile;
     const wrap = el('div', 'dash-region-map');
@@ -335,6 +332,20 @@
     wrap.appendChild(img);
     wrap.addEventListener('click', () => window.openImageModal(src, entity.name));
     return wrap;
+  }
+
+  function makeRegionMap() {
+    return makeMapWidget(window.App.byId(window.CAMPAIGN.regionMapEntity));
+  }
+
+  // For non-root locations: pick the DM map if in DM mode, else player map.
+  function makeLocationMap(graph) {
+    const images = graph.filter((e) => e.type === 'image');
+    if (!images.length) return null;
+    const entity = window.App.isDM()
+      ? (images.find((e) => e.visibility === 'dm-only') || images[0])
+      : images[0];
+    return makeMapWidget(entity);
   }
 
   // ── Main render ───────────────────────────────────────────────────────────
@@ -363,6 +374,9 @@
     botRow.appendChild(makeEnvironmentQuad(loc, graph));
     if (isRoot && window.CAMPAIGN.regionMapEntity) {
       const mapEl = makeRegionMap();
+      if (mapEl) botRow.appendChild(mapEl);
+    } else if (!isRoot) {
+      const mapEl = makeLocationMap(graph);
       if (mapEl) botRow.appendChild(mapEl);
     }
     botRow.appendChild(makeCuriositiesQuad(loc, graph));
