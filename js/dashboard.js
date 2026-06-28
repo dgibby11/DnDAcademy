@@ -335,7 +335,11 @@
   }
 
   function makeRegionMap() {
-    return makeMapWidget(window.App.byId(window.CAMPAIGN.regionMapEntity));
+    const entity = window.App.byId(window.CAMPAIGN.regionMapEntity);
+    if (!entity) return null;
+    // Region map is always shown at root if player-visible — no reveal required.
+    if (entity.visibility === 'dm-only' && !window.App.isDM()) return null;
+    return makeMapWidget(entity);
   }
 
   // For non-root locations: pick the DM map if in DM mode, else player map.
