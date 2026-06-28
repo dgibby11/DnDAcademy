@@ -9,15 +9,17 @@
 
 :root {
   /* dark chrome */
-  --bg:        #14161c;   /* deep blue-black */
-  --bg-2:      #0f1116;
-  --panel:     #1c1e26;   /* navy-charcoal */
-  --panel-2:   #23232c;
-  --leather:   #241d18;   /* warm brown undertone */
-  --line:      #3a3530;
-  --line-soft: #2a2a32;
+  --bg:        #12141a;   /* deep blue-black */
+  --bg-2:      #0d0f13;   /* deepest — reserved for inset/sink surfaces */
+  --panel:     #1e2132;   /* navy-charcoal — clearly above bg */
+  --panel-2:   #272940;   /* elevated surface — clearly above panel */
+  --leather:   #241d18;   /* warm brown undertone (topbar) */
+  --line:      #46424e;   /* visible separator */
+  --line-soft: #353248;   /* secondary separator */
   --ink:       #e8dfce;   /* parchment text on dark */
   --muted:     #a99c83;
+  --bg-deep:   #090b10;   /* deepest sink — region map bg, image overlays */
+  --panel-bg:  #1e2132;   /* alias for --panel, used in component scopes */
 
   /* accents */
   --gold:      #c9a227;   /* engraved gold */
@@ -293,17 +295,17 @@ body:not(.dm-on) .quad-curiosities { display: none; }
 .dash-quad {
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-soft);
   border-radius: 3px;
-  background: rgba(255,255,255,0.018);
+  background: var(--panel);
   overflow: hidden;
   min-height: 0;
 }
 .dash-quad-header {
   flex-shrink: 0;
   padding: 0.3rem 0.65rem;
-  background: rgba(0,0,0,0.22);
-  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  border-bottom: 1px solid var(--line-soft);
   font-family: var(--display);
   font-size: 0.66rem;
   letter-spacing: 0.18em;
@@ -326,9 +328,9 @@ body:not(.dm-on) .quad-curiosities { display: none; }
   font-size: 0.62rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--oxblood);
-  background: rgba(0,0,0,0.1);
-  border-bottom: 1px solid rgba(58,53,48,0.28);
+  color: var(--oxblood-2);
+  background: rgba(0,0,0,0.28);
+  border-bottom: 1px solid var(--line-soft);
 }
 
 /* Entity link cards */
@@ -337,7 +339,7 @@ body:not(.dm-on) .quad-curiosities { display: none; }
   align-items: center;
   gap: 0.4rem;
   padding: 0.28rem 0.6rem;
-  border-bottom: 1px solid rgba(58,53,48,0.25);
+  border-bottom: 1px solid var(--line-soft);
   font-size: 0.88rem;
 }
 .dash-entity-card:last-child { border-bottom: none; }
@@ -362,7 +364,7 @@ body:not(.dm-on) .quad-curiosities { display: none; }
   align-items: center;
   gap: 0.5rem;
   padding: 0.28rem 0.6rem;
-  border-bottom: 1px solid rgba(58,53,48,0.25);
+  border-bottom: 1px solid var(--line-soft);
   cursor: pointer;
   transition: background 0.1s;
 }
@@ -375,7 +377,7 @@ body:not(.dm-on) .quad-curiosities { display: none; }
 /* Environment quadrant blocks */
 .env-block {
   padding: 0.36rem 0.55rem;
-  border-bottom: 1px solid rgba(58,53,48,0.25);
+  border-bottom: 1px solid var(--line-soft);
 }
 .env-block:last-child { border-bottom: none; }
 .env-label {
@@ -391,7 +393,7 @@ body:not(.dm-on) .quad-curiosities { display: none; }
 /* Curiosities quadrant */
 .curiosity-item {
   padding: 0.36rem 0.55rem;
-  border-bottom: 1px solid rgba(58,53,48,0.25);
+  border-bottom: 1px solid var(--line-soft);
 }
 .curiosity-item:last-child { border-bottom: none; }
 .curiosity-roll {
@@ -2124,7 +2126,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 }
 
 /* Prompts */
-.sr-prompts { background: var(--bg); }
+.sr-prompts { background: var(--panel); }
 
 .sr-prompt-card {
   background: var(--panel-2);
@@ -2146,7 +2148,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 .sr-prompt-content p:last-child { margin-bottom: 0; }
 
 /* Detail */
-.sr-detail { background: var(--bg); }
+.sr-detail { background: var(--bg-2); }
 .sr-detail .sr-panel-hdr { justify-content: flex-start; gap: 0.75rem; }
 .sr-detail-title {
   flex: 1;
@@ -2208,7 +2210,7 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
 
 /* Sidebar */
 .sr-sidebar {
-  background: var(--bg-2);
+  background: var(--panel-2);
   border-right: none;
   border-left: 2px solid rgba(201,162,39,0.22);
 }
