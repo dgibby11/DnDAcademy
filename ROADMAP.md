@@ -50,7 +50,7 @@ Auto-detect approach: any multi-roll of d20 shows individual die values side-by-
 - ~~**Remove dashboard subtitle**~~ ✅ Done — one-line fix in `makeHeader()`.
 - ~~**Location bar → dashboard header**~~ ✅ Already done — `#location-bar` gone; back button, time toggle, Full Entry all inline in `makeHeader()`.
 - ~~**App rename**~~ ✅ Done — renamed to **TT Adventure Sessionbook** across index.html, data.js, style.css, start-map.bat, tools, README, ROADMAP, CLAUDE.md. GitHub repo name (DnDAcademy) unchanged — rename that separately on GitHub if desired.
-- **5e-bits API research** — evaluate https://5e-bits.github.io/docs/ for spell lookup, monster stat blocks, etc. Pure research, no code. Must be gracefully optional (DM-triggered; fails silently offline).
+- ~~**5e-bits API research**~~ ✅ Done — SRD REST API (dnd5eapi.co) and Open5e are both viable. Most useful endpoint: `/monsters/{index}` for stat blocks. Verdict: low priority — SRD content is thin (no campaign-specific monsters) and offline-first means silent failures during sessions. If implemented, best as an optional "Look up stat block →" button on creature entities. Not worth building until content gaps are felt at the table.
 - ~~**Search improvements**~~ ✅ Done — tag search, multi-word AND matching, score-based ranking.
 - ~~**Persistent DM state**~~ ✅ Already done — notes, revealed flags, session completion, location, and time all persisted via localStorage.
 - **Session runner image panel** — split bottom of session runner into thirds; center panel cycles images (← →) from related image entities. Medium effort.
