@@ -7,7 +7,7 @@
     "contentType": "image",
     "contentFile": "assets/phandelver-map-exterior-player.jpg",
     "visibility": "player",
-    "related": ["phandalin", "triboar_trail", "the_high_road", "sword_mountains", "icespire_peak", "ruins_of_thundertree", "conyberry", "old_owl_well"],
+    "related": ["phandalin"],
     "tags": ["map", "region", "sword-coast"]
   },
   {
@@ -18,7 +18,7 @@
     "contentType": "image",
     "contentFile": "assets/phandelver-map-exterior-dm.jpg",
     "visibility": "dm-only",
-    "related": ["phandalin", "triboar_trail", "cragmaw_hideout", "cragmaw_castle", "wave_echo_cave", "wyvern_tor", "conyberry", "old_owl_well", "ruins_of_thundertree"],
+    "related": ["phandalin"],
     "tags": ["map", "region", "sword-coast", "dm"]
   },
   {
