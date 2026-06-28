@@ -6,12 +6,22 @@
     "category": "Magic Weapons",
     "contentType": "html",
     "contentFile": "content/items/lightbringer.html",
-    "visibility": "dm-only",
-    "related": ["wave_echo_cave"],
-    "links": [
-      { "label": "Mace +1 — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/5382-mace-1" }
+    "visibility": "player",
+    "related": [
+      "wave_echo_cave"
     ],
-    "tags": ["magic", "weapon", "mace", "radiant"]
+    "links": [
+      {
+        "label": "Mace +1 — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/5382-mace-1"
+      }
+    ],
+    "tags": [
+      "magic",
+      "weapon",
+      "mace",
+      "radiant"
+    ]
   },
   {
     "id": "dragonguard",
@@ -20,12 +30,21 @@
     "category": "Magic Armor",
     "contentType": "html",
     "contentFile": "content/items/dragonguard.html",
-    "visibility": "dm-only",
-    "related": ["wave_echo_cave"],
-    "links": [
-      { "label": "Breastplate +1 — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/5159-breastplate-1" }
+    "visibility": "player",
+    "related": [
+      "wave_echo_cave"
     ],
-    "tags": ["magic", "armor", "breastplate"]
+    "links": [
+      {
+        "label": "Breastplate +1 — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/5159-breastplate-1"
+      }
+    ],
+    "tags": [
+      "magic",
+      "armor",
+      "breastplate"
+    ]
   },
   {
     "id": "talon",
@@ -35,11 +54,20 @@
     "contentType": "html",
     "contentFile": "content/items/talon.html",
     "visibility": "dm-only",
-    "related": ["redbrand_hideout"],
-    "links": [
-      { "label": "Longsword +1 — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/5380-longsword-1" }
+    "related": [
+      "redbrand_hideout"
     ],
-    "tags": ["magic", "weapon", "longsword"]
+    "links": [
+      {
+        "label": "Longsword +1 — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/5380-longsword-1"
+      }
+    ],
+    "tags": [
+      "magic",
+      "weapon",
+      "longsword"
+    ]
   },
   {
     "id": "hew",
@@ -48,12 +76,23 @@
     "category": "Magic Weapons",
     "contentType": "html",
     "contentFile": "content/items/hew.html",
-    "visibility": "dm-only",
-    "related": ["wave_echo_cave", "tharden_rockseeker"],
-    "links": [
-      { "label": "Battleaxe +1 — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/5157-battleaxe-1" }
+    "visibility": "player",
+    "related": [
+      "wave_echo_cave",
+      "tharden_rockseeker"
     ],
-    "tags": ["magic", "weapon", "battleaxe", "dwarf"]
+    "links": [
+      {
+        "label": "Battleaxe +1 — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/5157-battleaxe-1"
+      }
+    ],
+    "tags": [
+      "magic",
+      "weapon",
+      "battleaxe",
+      "dwarf"
+    ]
   },
   {
     "id": "spider_staff",
@@ -62,12 +101,23 @@
     "category": "Magic Staves",
     "contentType": "html",
     "contentFile": "content/items/spider_staff.html",
-    "visibility": "dm-only",
-    "related": ["nezznar_black_spider", "wave_echo_cave"],
-    "links": [
-      { "label": "Spider Staff — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/4783-spider-staff" }
+    "visibility": "player",
+    "related": [
+      "nezznar_black_spider",
+      "wave_echo_cave"
     ],
-    "tags": ["magic", "staff", "spider", "drow"]
+    "links": [
+      {
+        "label": "Spider Staff — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/4783-spider-staff"
+      }
+    ],
+    "tags": [
+      "magic",
+      "staff",
+      "spider",
+      "drow"
+    ]
   },
   {
     "id": "staff_of_defense",
@@ -77,10 +127,20 @@
     "contentType": "html",
     "contentFile": "content/items/staff_of_defense.html",
     "visibility": "dm-only",
-    "related": ["iarno_albrek", "redbrand_hideout"],
-    "links": [
-      { "label": "Staff of Defense — D&D Beyond", "url": "https://www.dndbeyond.com/magic-items/4782-staff-of-defense" }
+    "related": [
+      "iarno_albrek",
+      "redbrand_hideout"
     ],
-    "tags": ["magic", "staff", "wizard"]
+    "links": [
+      {
+        "label": "Staff of Defense — D&D Beyond",
+        "url": "https://www.dndbeyond.com/magic-items/4782-staff-of-defense"
+      }
+    ],
+    "tags": [
+      "magic",
+      "staff",
+      "wizard"
+    ]
   }
 ]

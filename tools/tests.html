@@ -304,6 +304,145 @@
 
     } // end M tests
 
+    // ── wireZoom tests ────────────────────────────────────────────────────────
+    section('wireZoom() -- API and scale clamping');
+
+    (function () {
+      // Build a minimal container + img pair
+      function makeFixture() {
+        const container = document.createElement('div');
+        const img       = document.createElement('img');
+        container.appendChild(img);
+        document.body.appendChild(container);   // must be in DOM for event dispatch
+        return { container, img, cleanup: () => container.remove() };
+      }
+
+      function parseScale(transform) {
+        // extract scale(N) from "translate(Xpx,Ypx) scale(N)"
+        const m = transform.match(/scale\(([^)]+)\)/);
+        return m ? parseFloat(m[1]) : 1;
+      }
+
+      test('wireZoom returns { reset, zoomBy }', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        assert(typeof ctrl.reset  === 'function', 'reset should be a function');
+        assert(typeof ctrl.zoomBy === 'function', 'zoomBy should be a function');
+        cleanup();
+      });
+
+      test('initial transform is scale(1)', () => {
+        const { container, img, cleanup } = makeFixture();
+        M.wireZoom(container, img);
+        assertEqual(parseScale(img.style.transform), 1);
+        cleanup();
+      });
+
+      test('zoomBy(2) doubles the scale', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(2);
+        assertEqual(parseScale(img.style.transform), 2);
+        cleanup();
+      });
+
+      test('zoomBy compounds: 2x then 2x = 4x', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(2);
+        ctrl.zoomBy(2);
+        assert(Math.abs(parseScale(img.style.transform) - 4) < 0.001, 'scale should be ~4');
+        cleanup();
+      });
+
+      test('scale clamps at MAX (8)', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(1000);
+        assertEqual(parseScale(img.style.transform), 8, 'scale must not exceed 8');
+        cleanup();
+      });
+
+      test('scale clamps at MIN (0.25)', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(0.0001);
+        assertEqual(parseScale(img.style.transform), 0.25, 'scale must not go below 0.25');
+        cleanup();
+      });
+
+      test('reset() restores scale to 1', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(3);
+        ctrl.reset();
+        assertEqual(parseScale(img.style.transform), 1, 'reset should restore scale to 1');
+        cleanup();
+      });
+
+      test('img.draggable is false after wireZoom', () => {
+        const { container, img, cleanup } = makeFixture();
+        M.wireZoom(container, img);
+        assertEqual(img.draggable, false);
+        cleanup();
+      });
+
+      test('cursor is zoom-in at scale 1', () => {
+        const { container, img, cleanup } = makeFixture();
+        M.wireZoom(container, img);
+        assertEqual(img.style.cursor, 'zoom-in');
+        cleanup();
+      });
+
+      test('cursor is grab when scale > 1', () => {
+        const { container, img, cleanup } = makeFixture();
+        const ctrl = M.wireZoom(container, img);
+        ctrl.zoomBy(2);
+        assertEqual(img.style.cursor, 'grab');
+        cleanup();
+      });
+    })();
+
+    section('openImageModal() / closeImageModal()');
+
+    test('openImageModal creates #img-overlay in DOM', () => {
+      window.openImageModal('test.jpg', 'Test Image');
+      const el = document.getElementById('img-overlay');
+      assert(el !== null, '#img-overlay should exist after first call');
+    });
+
+    test('openImageModal sets title text', () => {
+      window.openImageModal('test.jpg', 'My Map');
+      const title = document.getElementById('img-modal-title');
+      assertEqual(title.textContent, 'My Map');
+    });
+
+    test('openImageModal sets image src', () => {
+      window.openImageModal('region_map.jpg', 'Region');
+      const img = document.getElementById('img-modal-img');
+      assert(img.src.endsWith('region_map.jpg'), 'img src should end with region_map.jpg');
+    });
+
+    test('overlay is visible after openImageModal', () => {
+      window.openImageModal('test.jpg', 'Test');
+      const el = document.getElementById('img-overlay');
+      assertEqual(el.hidden, false, 'overlay should not be hidden');
+    });
+
+    test('Escape key closes the image modal', () => {
+      window.openImageModal('test.jpg', 'Test');
+      document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      const el = document.getElementById('img-overlay');
+      assertEqual(el.hidden, true, 'overlay should be hidden after Escape');
+    });
+
+    test('zoom buttons exist inside image modal', () => {
+      window.openImageModal('test.jpg', 'Test');
+      assert(document.getElementById('img-btn-in')    !== null, '#img-btn-in missing');
+      assert(document.getElementById('img-btn-out')   !== null, '#img-btn-out missing');
+      assert(document.getElementById('img-btn-reset') !== null, '#img-btn-reset missing');
+    });
+
     // ── Summary ───────────────────────────────────────────────────────────────
     const total = passes + failures;
     const sumEl = document.createElement('div');

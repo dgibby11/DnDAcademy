@@ -68,29 +68,42 @@ This is the highest-leverage improvement for actual play value but requires the 
 
 ---
 
-### 4. Images — Town Maps, NPC Portraits, Key Artifacts
+### 4. Location Bar — Consolidate into Dashboard Header
 **Status:** Not started  
-**Effort:** Medium (per campaign)
+**Effort:** Small
 
-Add visual assets for high-value entities: town/area maps, portraits of recurring NPCs, and images of significant magic items or set-piece locations.
+The location bar (`#location-bar`) sits below the top bar and above the dashboard panels, eating vertical space with information that duplicates or belongs in the dashboard header. Options:
 
-**Content types already supported:** `contentType: "image"` renders a full-width image in the modal. This works today — it's purely a content pipeline task.
+- Merge the "◎ Campaign Home / ◎ Location Name" indicator into `.dash-location-header` as a breadcrumb or subtitle
+- Move the ← Campaign Home back-button into the header as a button (already has a `Full Entry →` button there)
+- Move the time-of-day toggle into the header row (compact pill row)
+- Remove the separate location bar element entirely, recovering ~2rem of vertical space above the panels
 
-**What's needed:**
-- Source or commission/find images (D&D Beyond, official art books, AI generation, fan art with attribution)
-- Decide display approach: full-panel image, or image alongside text (image + HTML hybrid)
-- Potentially support `contentType: "html"` with an embedded `<img>` for image + description combos — already possible, just needs a convention
-- Prioritize by campaign: which NPCs/locations come up most often at the table?
+Goal: the four quadrant panels start higher on the page, with all navigation controls inline in the header.
 
-**Candidates (campaign-agnostic):**
-- Town maps for major settlements (Baldur's Gate, Vallaki, Waterdeep)
-- Recurring villain portraits (Strahd, Zariel, etc.)
-- Party-acquired magic items with flavor art
+---
+
+### 5. Images — Session Image Panel + Entity Portraits
+**Status:** Not started  
+**Effort:** Medium (per campaign) + Small (session panel layout)
+
+Two related tracks:
+
+**4a. Session runner image panel**  
+Split the bottom half of the session runner into thirds (mirroring the top three panels). The center bottom panel shows images associated with the session, cycled with ← → arrows. If the session has no images, the panel is hidden and the adjacent two panels expand to fill the space. Images would be stored as a `images: ["path/to/img.jpg", ...]` array on the session entity (or sourced from related entities with `contentType: "image"`). The layout change is small; the main effort is content — sourcing scene/encounter art.
+
+**4b. Entity image assets**  
+Add visual assets for high-value entities: town maps, NPC portraits, magic item art, set-piece location art.
+
+`contentType: "image"` already renders a full-width image in the modal — purely a content pipeline task. Priorities: recurring villains (Strahd, Zariel), key locations, party-acquired items.
 
 ---
 
 ## Icebox (good ideas, not yet prioritized)
 
+- **5e-bits API research** — evaluate https://5e-bits.github.io/docs/ for integration opportunities: spell lookup, monster stat blocks, equipment, classes/spells by level. Assess which endpoints are useful at the table vs. what we already author locally. Note: the app is offline-first so any API use must be gracefully optional (DM explicitly triggers a lookup; fails silently when offline).
+- **App rename** — the tool has outgrown the "FAIL Academy" concept and is now a general D&D campaign dossier. Pick a new name that reflects that.
+- **Remove dashboard subtitle** — strip `campaign.subtitle` (e.g. "Sword Coast — Characters Level 1–5") from the `dash-location-header` meta line; it's too verbose for the header strip. Replace with a simpler indicator or nothing.
 - **Persistent DM state** — notes, revealed flags, session log (partially done via localStorage)
 - **Player vs DM view** — screen-safe player mode (DM toggle exists, full gating not built)
 - **Party overview page** — track party members, HP, conditions, inventory

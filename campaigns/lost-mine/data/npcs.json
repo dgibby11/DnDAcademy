@@ -6,7 +6,7 @@
     "category": "Key NPCs",
     "contentType": "html",
     "contentFile": "content/npcs/gundren_rockseeker.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "sildar_hallwinter",
       "tharden_rockseeker",
@@ -28,7 +28,7 @@
     "category": "Key NPCs",
     "contentType": "html",
     "contentFile": "content/npcs/sildar_hallwinter.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "gundren_rockseeker",
       "lords_alliance",
@@ -48,7 +48,7 @@
     "category": "Villains",
     "contentType": "html",
     "contentFile": "content/npcs/iarno_albrek.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "redbrands",
       "redbrand_hideout",
@@ -72,7 +72,7 @@
     "category": "Villains",
     "contentType": "html",
     "contentFile": "content/npcs/nezznar_black_spider.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "wave_echo_cave",
       "cragmaw_tribe",
@@ -94,7 +94,7 @@
     "category": "Villains",
     "contentType": "html",
     "contentFile": "content/npcs/king_grol.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "cragmaw_castle",
       "cragmaw_tribe",
@@ -150,7 +150,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/toblen_stonehill.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "stonehill_inn",
       "phandalin"
@@ -167,7 +167,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/elmar_barthen.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "barthens_provisions",
       "phandalin",
@@ -185,7 +185,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/linene_graywind.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "lionshield_coster",
       "phandalin"
@@ -202,7 +202,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/halia_thornton.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "phandalin_miners_exchange",
       "phandalin",
@@ -222,7 +222,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/sister_garaele.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "shrine_of_luck",
       "phandalin",
@@ -243,7 +243,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/daran_edermath.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "edermath_orchard",
       "phandalin",
@@ -263,7 +263,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/qelline_alderleaf.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "alderleaf_farm",
       "phandalin",
@@ -281,7 +281,7 @@
     "category": "Phandalin Locals",
     "contentType": "html",
     "contentFile": "content/npcs/harbin_wester.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "townmasters_hall",
       "phandalin",
@@ -300,7 +300,7 @@
     "category": "Notable Creatures",
     "contentType": "html",
     "contentFile": "content/npcs/agatha.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "conyberry",
       "sister_garaele",
@@ -318,7 +318,7 @@
     "category": "Notable Creatures",
     "contentType": "html",
     "contentFile": "content/npcs/reidoth.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "ruins_of_thundertree",
       "emerald_enclave",
@@ -338,7 +338,7 @@
     "category": "Notable Creatures",
     "contentType": "html",
     "contentFile": "content/npcs/hamun_kost.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "old_owl_well"
     ],
@@ -355,7 +355,7 @@
     "category": "Key NPCs",
     "contentType": "html",
     "contentFile": "content/npcs/tharden_rockseeker.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "gundren_rockseeker",
       "nundro_rockseeker",
@@ -375,7 +375,7 @@
     "category": "Key NPCs",
     "contentType": "html",
     "contentFile": "content/npcs/nundro_rockseeker.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "gundren_rockseeker",
       "tharden_rockseeker",

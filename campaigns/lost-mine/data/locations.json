@@ -65,7 +65,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/stonehill_inn.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "toblen_stonehill",
       "phandalin",
@@ -93,7 +93,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/barthens_provisions.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "elmar_barthen",
       "phandalin",
@@ -111,7 +111,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/lionshield_coster.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "linene_graywind",
       "phandalin"
@@ -128,7 +128,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/phandalin_miners_exchange.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "halia_thornton",
       "phandalin",
@@ -147,7 +147,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/shrine_of_luck.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "sister_garaele",
       "phandalin",
@@ -167,7 +167,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/townmasters_hall.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "harbin_wester",
       "phandalin"
@@ -190,7 +190,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/sleeping_giant.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "redbrands",
       "phandalin"
@@ -207,7 +207,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/alderleaf_farm.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "qelline_alderleaf",
       "phandalin",
@@ -225,7 +225,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/edermath_orchard.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "daran_edermath",
       "phandalin",
@@ -244,7 +244,7 @@
     "category": "Phandalin",
     "contentType": "html",
     "contentFile": "content/locations/tresendar_manor.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "redbrand_hideout",
       "phandalin",
@@ -268,7 +268,7 @@
     "category": "Dungeons",
     "contentType": "html",
     "contentFile": "content/locations/redbrand_hideout.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "tresendar_manor",
       "iarno_albrek",
@@ -300,14 +300,16 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/cragmaw_hideout.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "klarg",
       "yeemik",
       "cragmaw_tribe",
       "sildar_hallwinter",
       "gundren_rockseeker",
-      "wave_echo_cave_location"
+      "wave_echo_cave_location",
+      "goblin",
+      "wolf"
     ],
     "environment": {
       "architecture": "Cave complex hidden in a hillside along Triboar Trail, overgrown with thorn bushes. Goblin lair with three main chambers.",
@@ -331,7 +333,7 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/cragmaw_castle.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "king_grol",
       "cragmaw_tribe",
@@ -361,7 +363,7 @@
     "category": "Dungeons",
     "contentType": "html",
     "contentFile": "content/locations/wave_echo_cave.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "nezznar_black_spider",
       "mormesk",
@@ -401,7 +403,7 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/ruins_of_thundertree.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "venomfang",
       "reidoth",
@@ -431,7 +433,7 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/old_owl_well.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "hamun_kost",
       "daran_edermath"
@@ -448,9 +450,10 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/wyvern_tor.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
-      "harbin_wester"
+      "harbin_wester",
+      "sword_mountains"
     ],
     "environment": {
       "architecture": "Rocky tor in the hills east of Triboar Trail. An orc war band has made camp in a cave on the southeast face.",
@@ -464,7 +467,7 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/conyberry.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "agatha",
       "sister_garaele",
@@ -482,7 +485,7 @@
     "category": "Wilderness",
     "contentType": "html",
     "contentFile": "content/locations/triboar_trail.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "cragmaw_hideout",
       "phandalin",
@@ -490,12 +493,70 @@
       "old_owl_well",
       "wyvern_tor",
       "conyberry",
-      "ruins_of_thundertree"
+      "ruins_of_thundertree",
+      "the_high_road",
+      "sword_mountains"
     ],
     "environment": {
       "architecture": "Rutted dirt road cutting through the Sword Coast wilderness, connecting Triboar to the coast. Infrequently traveled.",
       "sensory": "Wind in the pines, birdsong, the occasional creak of a wagon. The road feels exposed — watchers in the trees are possible.",
       "weather": "Highly variable; fog common in mornings near the river."
+    }
+  },
+  {
+    "id": "the_high_road",
+    "name": "The High Road",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/the_high_road.html",
+    "visibility": "player",
+    "related": [
+      "triboar_trail",
+      "phandalin"
+    ],
+    "environment": {
+      "architecture": "Broad coastal trade road running north-south along the Sword Coast. Well-maintained near cities, rutted and exposed in between.",
+      "sensory": "Sea wind off the Sword Coast, salt air, the rumble of distant wagon wheels. Gulls audible when near the coast."
+    }
+  },
+  {
+    "id": "sword_mountains",
+    "name": "Sword Mountains",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/sword_mountains.html",
+    "visibility": "player",
+    "related": [
+      "icespire_peak",
+      "wave_echo_cave",
+      "wyvern_tor",
+      "phandalin"
+    ],
+    "environment": {
+      "architecture": "Jagged, snow-capped peaks rising sharply from the Sword Coast lowlands. Ancient orc holds and giant lairs in the high passes.",
+      "sensory": "Cold wind even in summer. The distant boom of avalanche or giant. Visible from Phandalin as a dark serrated line to the southeast.",
+      "weather": "Unpredictable; storms roll in fast from the interior. Snow at elevation year-round."
+    }
+  },
+  {
+    "id": "icespire_peak",
+    "name": "Icespire Peak",
+    "type": "location",
+    "category": "Wilderness",
+    "contentType": "html",
+    "contentFile": "content/locations/icespire_peak.html",
+    "visibility": "player",
+    "related": [
+      "sword_mountains",
+      "wave_echo_cave",
+      "wyvern_tor"
+    ],
+    "environment": {
+      "architecture": "Tallest summit in the Sword Mountains, permanently ice-capped. No known trails to the top; the upper slopes are sheer and wind-blasted.",
+      "sensory": "Visible for miles as a white spire on the horizon. From its base: howling wind, the creak of ice, absolute silence between gusts.",
+      "weather": "Perpetual winter above the snowline. Lower slopes see ice storms in autumn and spring."
     }
   }
 ]

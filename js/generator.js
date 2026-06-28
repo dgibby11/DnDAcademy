@@ -232,10 +232,8 @@
 
     // ─── Genders ───────────────────────────────────────────────────────────────
     genders: [
-      {v:'Male',              pronouns:['he','him','his'],   w:47},
-      {v:'Female',            pronouns:['she','her','her'],  w:47},
-      {v:'Non-binary',        pronouns:['they','them','their'], w:5},
-      {v:'Prefers not to say',pronouns:['they','them','their'], w:1},
+      {v:'Male',   pronouns:['he','him','his'],  w:50},
+      {v:'Female', pronouns:['she','her','her'], w:50},
     ],
 
     // ─── Alignments ────────────────────────────────────────────────────────────

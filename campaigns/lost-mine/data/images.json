@@ -1,0 +1,23 @@
+[
+  {
+    "id": "lmop_region_map",
+    "name": "Region Map — Sword Coast",
+    "type": "image",
+    "category": "Maps",
+    "contentType": "image",
+    "contentFile": "assets/region_map.jpg",
+    "visibility": "player",
+    "related": [
+      "phandalin",
+      "triboar_trail",
+      "the_high_road",
+      "sword_mountains",
+      "icespire_peak"
+    ],
+    "tags": [
+      "map",
+      "region",
+      "sword-coast"
+    ]
+  }
+]

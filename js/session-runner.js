@@ -165,8 +165,7 @@
   // ── Render ─────────────────────────────────────────────────────────────────
 
   function renderRunner(savedNotes) {
-    document.getElementById('location-bar').hidden = true;
-    document.getElementById('dashboard').hidden    = true;
+    document.getElementById('dashboard').hidden = true;
 
     const mount = document.getElementById('session-runner');
     mount.innerHTML = '';
@@ -181,10 +180,30 @@
       barLeft.appendChild(mkEl('span', 'sr-start-loc', `▸ ${locName}`));
     }
     bar.appendChild(barLeft);
+    const barRight = mkEl('div', 'sr-bar-right');
+
+    if (Array.isArray(_session.reveals) && _session.reveals.length) {
+      const completedKey = _session.id + ':complete';
+      const alreadyDone  = window.App.isRevealed(completedKey);
+      const completeBtn  = mkEl('button', 'sr-complete-btn' + (alreadyDone ? ' sr-complete-done' : ''),
+        alreadyDone ? 'Session Complete ✓' : 'Complete Session');
+      completeBtn.type     = 'button';
+      completeBtn.disabled = alreadyDone;
+      if (!alreadyDone) {
+        completeBtn.addEventListener('click', () => {
+          window.openSessionConfirm(_session, () => {
+            exitRunner();
+          });
+        });
+      }
+      barRight.appendChild(completeBtn);
+    }
+
     const exitBtn = mkEl('button', 'sr-exit-btn', '✕ Exit Runner');
     exitBtn.type = 'button';
     exitBtn.addEventListener('click', exitRunner);
-    bar.appendChild(exitBtn);
+    barRight.appendChild(exitBtn);
+    bar.appendChild(barRight);
     mount.appendChild(bar);
 
     // Three panels
@@ -409,8 +428,7 @@
     _detailTitle = _detailBack = _detailBody = _pinsEl = null;
 
     document.getElementById('session-runner').hidden = true;
-    document.getElementById('location-bar').hidden   = false;
-    document.getElementById('dashboard').hidden       = false;
+    document.getElementById('dashboard').hidden      = false;
   }
 
   // ── Helper ─────────────────────────────────────────────────────────────────

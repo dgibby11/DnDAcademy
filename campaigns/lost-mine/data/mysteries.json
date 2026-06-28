@@ -6,8 +6,14 @@
     "category": "Primary Mysteries",
     "contentType": "html",
     "contentFile": "content/mysteries/wave_echo_cave_location.html",
-    "visibility": "dm-only",
-    "related": ["gundren_rockseeker", "wave_echo_cave", "cragmaw_castle", "king_grol", "fate_of_phandelver_pact"]
+    "visibility": "player",
+    "related": [
+      "gundren_rockseeker",
+      "wave_echo_cave",
+      "cragmaw_castle",
+      "king_grol",
+      "fate_of_phandelver_pact"
+    ]
   },
   {
     "id": "black_spider_identity",
@@ -16,8 +22,13 @@
     "category": "Primary Mysteries",
     "contentType": "html",
     "contentFile": "content/mysteries/black_spider_identity.html",
-    "visibility": "dm-only",
-    "related": ["nezznar_black_spider", "iarno_albrek", "cragmaw_tribe", "redbrand_hideout"]
+    "visibility": "player",
+    "related": [
+      "nezznar_black_spider",
+      "iarno_albrek",
+      "cragmaw_tribe",
+      "redbrand_hideout"
+    ]
   },
   {
     "id": "glasstaff_identity",
@@ -26,8 +37,13 @@
     "category": "Primary Mysteries",
     "contentType": "html",
     "contentFile": "content/mysteries/glasstaff_identity.html",
-    "visibility": "dm-only",
-    "related": ["iarno_albrek", "redbrand_hideout", "sildar_hallwinter", "lords_alliance"]
+    "visibility": "player",
+    "related": [
+      "iarno_albrek",
+      "redbrand_hideout",
+      "sildar_hallwinter",
+      "lords_alliance"
+    ]
   },
   {
     "id": "fate_of_phandelver_pact",
@@ -37,7 +53,11 @@
     "contentType": "html",
     "contentFile": "content/mysteries/fate_of_phandelver_pact.html",
     "visibility": "player",
-    "related": ["wave_echo_cave", "forge_of_spells", "gundren_rockseeker"]
+    "related": [
+      "wave_echo_cave",
+      "forge_of_spells",
+      "gundren_rockseeker"
+    ]
   },
   {
     "id": "forge_of_spells",
@@ -47,7 +67,12 @@
     "contentType": "html",
     "contentFile": "content/mysteries/forge_of_spells.html",
     "visibility": "dm-only",
-    "related": ["wave_echo_cave", "spectator", "nezznar_black_spider", "fate_of_phandelver_pact"]
+    "related": [
+      "wave_echo_cave",
+      "spectator",
+      "nezznar_black_spider",
+      "fate_of_phandelver_pact"
+    ]
   },
   {
     "id": "mirnas_heirloom",
@@ -56,8 +81,11 @@
     "category": "Side Quests",
     "contentType": "html",
     "contentFile": "content/mysteries/mirnas_heirloom.html",
-    "visibility": "dm-only",
-    "related": ["redbrand_hideout", "ruins_of_thundertree"]
+    "visibility": "player",
+    "related": [
+      "redbrand_hideout",
+      "ruins_of_thundertree"
+    ]
   },
   {
     "id": "bowgentles_spellbook",
@@ -66,7 +94,11 @@
     "category": "Side Quests",
     "contentType": "html",
     "contentFile": "content/mysteries/bowgentles_spellbook.html",
-    "visibility": "dm-only",
-    "related": ["agatha", "sister_garaele", "conyberry"]
+    "visibility": "player",
+    "related": [
+      "agatha",
+      "sister_garaele",
+      "conyberry"
+    ]
   }
 ]

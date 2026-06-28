@@ -6,7 +6,7 @@
     "category": "Major Factions",
     "contentType": "html",
     "contentFile": "content/factions/lords_alliance.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "sildar_hallwinter",
       "iarno_albrek"
@@ -24,7 +24,7 @@
     "category": "Major Factions",
     "contentType": "html",
     "contentFile": "content/factions/harpers.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "sister_garaele"
     ],
@@ -41,7 +41,7 @@
     "category": "Major Factions",
     "contentType": "html",
     "contentFile": "content/factions/order_of_the_gauntlet.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "daran_edermath"
     ],
@@ -58,7 +58,7 @@
     "category": "Major Factions",
     "contentType": "html",
     "contentFile": "content/factions/emerald_enclave.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "reidoth"
     ],
@@ -75,7 +75,7 @@
     "category": "Major Factions",
     "contentType": "html",
     "contentFile": "content/factions/zhentarim.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "halia_thornton"
     ],
@@ -92,7 +92,7 @@
     "category": "Antagonists",
     "contentType": "html",
     "contentFile": "content/factions/cragmaw_tribe.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "klarg",
       "king_grol",
@@ -114,7 +114,7 @@
     "category": "Antagonists",
     "contentType": "html",
     "contentFile": "content/factions/redbrands.html",
-    "visibility": "dm-only",
+    "visibility": "player",
     "related": [
       "iarno_albrek",
       "redbrand_hideout",

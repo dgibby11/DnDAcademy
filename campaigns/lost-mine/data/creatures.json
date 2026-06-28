@@ -1,5 +1,33 @@
 [
   {
+    "id": "goblin",
+    "name": "Goblin",
+    "type": "creature",
+    "category": "Stat Blocks",
+    "contentType": "html",
+    "contentFile": "content/creatures/goblin.html",
+    "visibility": "dm-only",
+    "related": ["cragmaw_hideout", "cragmaw_tribe", "klarg", "yeemik"],
+    "links": [
+      { "label": "Goblin — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/16907-goblin" }
+    ],
+    "tags": ["goblin", "cragmaw", "session-1"]
+  },
+  {
+    "id": "wolf",
+    "name": "Wolf",
+    "type": "creature",
+    "category": "Stat Blocks",
+    "contentType": "html",
+    "contentFile": "content/creatures/wolf.html",
+    "visibility": "dm-only",
+    "related": ["cragmaw_hideout", "klarg"],
+    "links": [
+      { "label": "Wolf — D&D Beyond", "url": "https://www.dndbeyond.com/monsters/17062-wolf" }
+    ],
+    "tags": ["beast", "wolf", "cragmaw", "session-1"]
+  },
+  {
     "id": "venomfang",
     "name": "Venomfang",
     "type": "creature",

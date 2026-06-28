@@ -188,15 +188,13 @@
       btn.disabled = done;
       btn.textContent = done
         ? 'Session complete — players updated'
-        : `Complete session → reveal ${loc.reveals.length} entities to players`;
+        : `Complete session → choose what players discover`;
       if (!done) {
-        btn.addEventListener('click', () => {
-          window.App.setRevealed(completedKey, true);
-          for (const id of loc.reveals) window.App.setRevealed(id, true);
+        btn.addEventListener('click', () => openSessionConfirm(loc, () => {
           btn.textContent = 'Session complete — players updated';
-          btn.disabled = true;
+          btn.disabled    = true;
           btn.classList.add('session-complete-btn-done');
-        });
+        }));
       }
       sec.appendChild(btn);
       bodyEl.appendChild(sec);
@@ -223,7 +221,14 @@
     const file = loc.contentFile ? base + loc.contentFile : '';
 
     if (type === 'image') {
-      bodyEl.innerHTML = `<div class="modal-image"><img src="${file}" alt="${loc.name}" /></div>`;
+      bodyEl.innerHTML = `
+        <div class="modal-image"><img src="${file}" alt="${loc.name}" /></div>
+        <p class="modal-image-hint">Scroll to zoom · drag to pan · double-click to reset ·
+          <button class="modal-image-fs" type="button">⊞ Fullscreen</button></p>`;
+      const mCont = bodyEl.querySelector('.modal-image');
+      const mImg  = mCont.querySelector('img');
+      wireZoom(mCont, mImg);
+      bodyEl.querySelector('.modal-image-fs').addEventListener('click', () => openImageModal(file, loc.name));
       appendExtras(loc);
     } else if (type === 'pdf') {
       bodyEl.innerHTML = `
@@ -257,6 +262,245 @@
     }
   }
 
+  // ── Zoom / pan helper ─────────────────────────────────────────────────────────
+
+  function wireZoom(container, img) {
+    let scale = 1, ox = 0, oy = 0, dragging = false, sx = 0, sy = 0;
+    const MIN = 0.25, MAX = 8;
+
+    function clamp(s, x, y) {
+      if (s <= 1) return { x: 0, y: 0 };
+      const mw = container.clientWidth  * (s - 1) / 2;
+      const mh = container.clientHeight * (s - 1) / 2;
+      return { x: Math.max(-mw, Math.min(mw, x)), y: Math.max(-mh, Math.min(mh, y)) };
+    }
+
+    function apply() {
+      img.style.transform = `translate(${ox}px,${oy}px) scale(${scale})`;
+      img.style.cursor = dragging ? 'grabbing' : scale > 1 ? 'grab' : 'zoom-in';
+    }
+
+    function zoomBy(factor) {
+      scale = Math.max(MIN, Math.min(MAX, scale * factor));
+      const c = clamp(scale, ox, oy);
+      ox = c.x; oy = c.y;
+      apply();
+    }
+
+    function reset() { scale = 1; ox = 0; oy = 0; apply(); }
+
+    function onMove(e) {
+      if (!dragging) return;
+      const c = clamp(scale, e.clientX - sx, e.clientY - sy);
+      ox = c.x; oy = c.y;
+      apply();
+    }
+
+    function onUp() {
+      dragging = false;
+      apply();
+      document.removeEventListener('mousemove', onMove);
+      document.removeEventListener('mouseup',   onUp);
+    }
+
+    img.draggable = false;
+    img.style.transformOrigin = 'center';
+
+    container.addEventListener('wheel', (e) => {
+      e.preventDefault();
+      zoomBy(e.deltaY < 0 ? 1.15 : 1 / 1.15);
+    }, { passive: false });
+
+    container.addEventListener('mousedown', (e) => {
+      if (scale <= 1 || e.button !== 0) return;
+      dragging = true;
+      sx = e.clientX - ox;
+      sy = e.clientY - oy;
+      apply();
+      e.preventDefault();
+      document.addEventListener('mousemove', onMove);
+      document.addEventListener('mouseup',   onUp);
+    });
+
+    container.addEventListener('dblclick', reset);
+
+    apply();
+    return { reset, zoomBy };
+  }
+
+  // ── Standalone image modal (openImageModal) ────────────────────────────────
+
+  let imgOverlay, imgTitleEl, imgEl, imgZoomCtrl;
+
+  function buildImageModal() {
+    imgOverlay = document.createElement('div');
+    imgOverlay.id = 'img-overlay';
+    imgOverlay.hidden = true;
+    imgOverlay.innerHTML = `
+      <div id="img-modal">
+        <div id="img-modal-bar">
+          <span id="img-modal-title"></span>
+          <div class="img-zoom-controls">
+            <button class="img-zoom-btn" id="img-btn-out"   type="button">−</button>
+            <button class="img-zoom-btn" id="img-btn-reset" type="button">⊙ Fit</button>
+            <button class="img-zoom-btn" id="img-btn-in"    type="button">+</button>
+          </div>
+          <button id="img-modal-close" type="button">✕</button>
+        </div>
+        <div id="img-modal-stage">
+          <img id="img-modal-img" src="" alt="" />
+        </div>
+      </div>`;
+    document.body.appendChild(imgOverlay);
+
+    imgTitleEl = imgOverlay.querySelector('#img-modal-title');
+    imgEl      = imgOverlay.querySelector('#img-modal-img');
+    const stage = imgOverlay.querySelector('#img-modal-stage');
+
+    imgZoomCtrl = wireZoom(stage, imgEl);
+
+    imgOverlay.querySelector('#img-btn-out').addEventListener('click',   () => imgZoomCtrl.zoomBy(1 / 1.4));
+    imgOverlay.querySelector('#img-btn-reset').addEventListener('click', () => imgZoomCtrl.reset());
+    imgOverlay.querySelector('#img-btn-in').addEventListener('click',    () => imgZoomCtrl.zoomBy(1.4));
+    imgOverlay.querySelector('#img-modal-close').addEventListener('click', closeImageModal);
+    imgOverlay.addEventListener('click', (e) => { if (e.target === imgOverlay) closeImageModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !imgOverlay.hidden) closeImageModal(); });
+  }
+
+  function openImageModal(src, title) {
+    if (!imgOverlay) buildImageModal();
+    imgTitleEl.textContent = title || '';
+    imgEl.src = src;
+    imgEl.alt = title || '';
+    imgZoomCtrl.reset();
+    imgOverlay.hidden = false;
+  }
+
+  function closeImageModal() {
+    imgOverlay.hidden = true;
+    imgEl.src = '';
+    imgZoomCtrl.reset();
+  }
+
+  // ── Session confirm dialog ─────────────────────────────────────────────────────
+  const TYPE_LABELS = {
+    location: 'Locations', npc: 'NPCs', faction: 'Factions',
+    mystery: 'Mysteries', item: 'Items', creature: 'Creatures',
+  };
+  // Preferred display order for type groups
+  const TYPE_ORDER = ['location', 'npc', 'faction', 'mystery', 'item', 'creature'];
+
+  let confirmEl = null;
+
+  function buildConfirm() {
+    confirmEl = document.createElement('div');
+    confirmEl.id = 'session-confirm-overlay';
+    confirmEl.hidden = true;
+    confirmEl.innerHTML = `
+      <div id="session-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="session-confirm-title">
+        <header id="session-confirm-header">
+          <h2 id="session-confirm-title"></h2>
+          <button id="session-confirm-close" type="button" aria-label="Close">&times;</button>
+        </header>
+        <p id="session-confirm-desc"></p>
+        <div id="session-confirm-groups"></div>
+        <footer id="session-confirm-footer">
+          <button id="session-confirm-cancel" type="button">Cancel</button>
+          <button id="session-confirm-ok" type="button">Confirm</button>
+        </footer>
+      </div>`;
+    document.body.appendChild(confirmEl);
+
+    const dismiss = () => { confirmEl.hidden = true; };
+    confirmEl.querySelector('#session-confirm-close').addEventListener('click', dismiss);
+    confirmEl.querySelector('#session-confirm-cancel').addEventListener('click', dismiss);
+    confirmEl.addEventListener('click', (e) => { if (e.target === confirmEl) dismiss(); });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !confirmEl.hidden) { e.stopPropagation(); dismiss(); }
+    });
+  }
+
+  function openSessionConfirm(session, onConfirmed) {
+    if (!confirmEl) buildConfirm();
+
+    const completedKey = session.id + ':complete';
+    const titleEl   = confirmEl.querySelector('#session-confirm-title');
+    const descEl    = confirmEl.querySelector('#session-confirm-desc');
+    const groupsEl  = confirmEl.querySelector('#session-confirm-groups');
+
+    titleEl.textContent = 'Complete: ' + session.name;
+    descEl.textContent  =
+      'Checked entities will become visible in Player View when you click Confirm. ' +
+      'Uncheck anything players haven\'t discovered yet — you can reveal those later ' +
+      'by opening this session again.';
+
+    // Group reveals by entity type
+    const groups = {};
+    for (const id of session.reveals || []) {
+      const entity = window.App.byId(id);
+      if (!entity) continue;
+      const t = entity.type || 'other';
+      (groups[t] = groups[t] || []).push(entity);
+    }
+
+    // Render groups in preferred type order, then any remaining types alphabetically
+    groupsEl.innerHTML = '';
+    const orderedTypes = [
+      ...TYPE_ORDER.filter((t) => groups[t]),
+      ...Object.keys(groups).filter((t) => !TYPE_ORDER.includes(t)).sort(),
+    ];
+
+    for (const type of orderedTypes) {
+      const entities = groups[type];
+      const sec  = document.createElement('section');
+      sec.className = 'scg-group';
+      const h3 = document.createElement('h3');
+      h3.textContent = TYPE_LABELS[type] || (type.charAt(0).toUpperCase() + type.slice(1) + 's');
+      sec.appendChild(h3);
+      const ul = document.createElement('ul');
+      for (const entity of entities) {
+        const alreadyRevealed = window.App.isRevealed(entity.id);
+        const li    = document.createElement('li');
+        const label = document.createElement('label');
+        label.className = 'scg-label' + (alreadyRevealed ? ' scg-already' : '');
+        const cb = document.createElement('input');
+        cb.type      = 'checkbox';
+        cb.checked   = true;
+        cb.dataset.id = entity.id;
+        cb.disabled  = alreadyRevealed;
+        label.appendChild(cb);
+        const nameSpan = document.createElement('span');
+        nameSpan.textContent = entity.name;
+        label.appendChild(nameSpan);
+        if (alreadyRevealed) {
+          const note = document.createElement('span');
+          note.className   = 'scg-already-note';
+          note.textContent = 'already visible';
+          label.appendChild(note);
+        }
+        li.appendChild(label);
+        ul.appendChild(li);
+      }
+      sec.appendChild(ul);
+      groupsEl.appendChild(sec);
+    }
+
+    // Replace ok button to clear any prior handler
+    const oldOk  = confirmEl.querySelector('#session-confirm-ok');
+    const newOk  = oldOk.cloneNode(true);
+    oldOk.replaceWith(newOk);
+    newOk.addEventListener('click', () => {
+      const checked = groupsEl.querySelectorAll('input[type="checkbox"]:checked:not(:disabled)');
+      for (const cb of checked) window.App.setRevealed(cb.dataset.id, true);
+      window.App.setRevealed(completedKey, true);
+      confirmEl.hidden = true;
+      if (typeof onConfirmed === 'function') onConfirmed();
+    });
+
+    confirmEl.hidden = false;
+    newOk.focus();
+  }
+
   function close() {
     if (!overlay) return;
     clearTimeout(noteTimer);
@@ -270,8 +514,10 @@
     if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
   }
 
-  window.openLocationModal = open;
+  window.openLocationModal  = open;
+  window.openSessionConfirm = openSessionConfirm;
+  window.openImageModal     = openImageModal;
 
-  // Test hook — exposes cross-link helpers for tools/tests.html.
-  window._modalTest = { resolveCrossLinks, makeLink };
+  // Test hook — exposes internals for tools/tests.html.
+  window._modalTest = { resolveCrossLinks, makeLink, wireZoom };
 })();

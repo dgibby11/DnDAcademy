@@ -2,7 +2,7 @@
   "id": "lost-mine",
   "name": "Lost Mine of Phandelver",
   "subtitle": "Sword Coast — Characters Level 1–5",
-  "mapImage": "assets/phandalin_region.png",
+  "regionMapEntity": "lmop_region_map",
   "rootLocation": "phandalin",
   "storageKey": "lost-mine.v1",
   "dmPassHash": "8a2cc0673b1c428315fe84c0138d95c3ddda30baf81e7d9aa821f1ca47098193",

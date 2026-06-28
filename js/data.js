@@ -42,7 +42,7 @@
     id:           campaignId,
     name:         'Campaign Dossier',
     subtitle:     '',
-    mapImage:     CAMPAIGN_BASE + '/assets/map.png',
+    regionMapEntity: '',
     rootLocation: 'campus_root',
     storageKey:   campaignId + '.v1',
     dmPassHash:   '',
@@ -66,7 +66,8 @@
       this.setDM(!this.isDM());
     },
     isVisible(entity) {
-      return entity.visibility !== 'dm-only' || this.isDM();
+      if (this.isDM()) return true;
+      return entity.visibility === 'player' && !!this.isRevealed?.(entity.id);
     },
     byId(id) {
       return byIdMap.get(id);
@@ -106,7 +107,6 @@
     }
 
     function applyConfig(cfg) {
-      if (cfg.mapImage) cfg.mapImage = resolveCampaignPath(cfg.mapImage);
       Object.assign(window.CAMPAIGN, cfg);
       document.title = window.CAMPAIGN.name;
       const h1  = document.querySelector('#topbar h1');

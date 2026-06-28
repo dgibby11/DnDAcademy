@@ -270,7 +270,13 @@
   function makeHeader(isRoot, loc) {
     const hdr = el('div', 'dash-location-header');
 
-    hdr.appendChild(el('h2', 'dash-location-title', loc ? loc.name : window.CAMPAIGN.name));
+    if (!isRoot) {
+      const back = el('button', 'loc-bar-back', '← Home');
+      back.addEventListener('click', () => window.App.clearLocation());
+      hdr.appendChild(back);
+    }
+
+    hdr.appendChild(el('h2', 'dash-location-title', isRoot ? window.CAMPAIGN.name : loc.name));
 
     const meta = el('div', 'dash-location-meta');
     const subtitle = window.CAMPAIGN.subtitle || '';
@@ -279,7 +285,9 @@
       : (['LOCATION', loc && loc.category].filter(Boolean).join(' · '));
     hdr.appendChild(meta);
 
-    if (loc && loc.contentFile) {
+    hdr.appendChild(makeTimeToggle());
+
+    if (!isRoot && loc && loc.contentFile) {
       const btn = el('button', 'dash-detail-btn', 'Full Entry →');
       btn.addEventListener('click', () => window.openLocationModal(loc));
       hdr.appendChild(btn);
@@ -310,21 +318,23 @@
     return wrap;
   }
 
-  // ── Location bar ──────────────────────────────────────────────────────────
+  // ── Region map ────────────────────────────────────────────────────────────
 
-  function updateLocationBar() {
-    const bar = document.getElementById('location-bar');
-    if (!bar) return;
-    bar.innerHTML = '';
-    const id  = window.App.getCurrentLocationId();
-    const loc = id ? window.App.byId(id) : null;
-    bar.appendChild(el('span', 'loc-bar-indicator', loc ? '◎ ' + loc.name : '◎ Campaign Home'));
-    if (loc) {
-      const back = el('button', 'loc-bar-back', '← Campaign Home');
-      back.addEventListener('click', () => window.App.clearLocation());
-      bar.appendChild(back);
-    }
-    bar.appendChild(makeTimeToggle());
+  function makeRegionMap() {
+    const entityId = window.CAMPAIGN.regionMapEntity;
+    if (!entityId) return null;
+    const entity = window.App.byId(entityId);
+    if (!entity || !window.App.isVisible(entity)) return null;
+    const src  = window.CAMPAIGN_BASE + '/' + entity.contentFile;
+    const wrap = el('div', 'dash-region-map');
+    wrap.title = 'Click to open — ' + entity.name;
+    wrap.style.cursor = 'zoom-in';
+    const img = el('img');
+    img.src = src;
+    img.alt = entity.name;
+    wrap.appendChild(img);
+    wrap.addEventListener('click', () => window.openImageModal(src, entity.name));
+    return wrap;
   }
 
   // ── Main render ───────────────────────────────────────────────────────────
@@ -342,14 +352,23 @@
     dash.innerHTML = '';
     dash.appendChild(makeHeader(isRoot, loc));
 
-    const quads = el('div', 'dash-quadrants');
-    quads.appendChild(makeLocationsQuad(graph.filter((e) => e.type === 'location')));
-    quads.appendChild(makePeopleQuad(graph));
-    quads.appendChild(makeEnvironmentQuad(loc, graph));
-    quads.appendChild(makeCuriositiesQuad(loc, graph));
-    dash.appendChild(quads);
+    const quads  = el('div', 'dash-quadrants');
 
-    updateLocationBar();
+    const topRow = el('div', 'dash-row');
+    topRow.appendChild(makeLocationsQuad(graph.filter((e) => e.type === 'location')));
+    topRow.appendChild(makePeopleQuad(graph));
+    quads.appendChild(topRow);
+
+    const botRow = el('div', 'dash-row');
+    botRow.appendChild(makeEnvironmentQuad(loc, graph));
+    if (isRoot && window.CAMPAIGN.regionMapEntity) {
+      const mapEl = makeRegionMap();
+      if (mapEl) botRow.appendChild(mapEl);
+    }
+    botRow.appendChild(makeCuriositiesQuad(loc, graph));
+    quads.appendChild(botRow);
+
+    dash.appendChild(quads);
   }
 
   document.addEventListener('entities:ready',   render);
