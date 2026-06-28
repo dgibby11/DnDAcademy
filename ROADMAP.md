@@ -1,4 +1,4 @@
-# DnDAcademy — Roadmap & Feature Backlog
+# TT Adventure Sessionbook — Roadmap & Feature Backlog
 
 Living document. Reprioritize freely. Add notes under each item as thinking evolves.
 
@@ -49,7 +49,7 @@ Auto-detect approach: any multi-roll of d20 shows individual die values side-by-
 
 - ~~**Remove dashboard subtitle**~~ ✅ Done — one-line fix in `makeHeader()`.
 - ~~**Location bar → dashboard header**~~ ✅ Already done — `#location-bar` gone; back button, time toggle, Full Entry all inline in `makeHeader()`.
-- **App rename** — pick a new name; mechanical find/replace across HTML/JS/CSS.
+- ~~**App rename**~~ ✅ Done — renamed to **TT Adventure Sessionbook** across index.html, data.js, style.css, start-map.bat, tools, README, ROADMAP, CLAUDE.md. GitHub repo name (DnDAcademy) unchanged — rename that separately on GitHub if desired.
 - **5e-bits API research** — evaluate https://5e-bits.github.io/docs/ for spell lookup, monster stat blocks, etc. Pure research, no code. Must be gracefully optional (DM-triggered; fails silently offline).
 - ~~**Search improvements**~~ ✅ Done — tag search, multi-word AND matching, score-based ranking.
 - ~~**Persistent DM state**~~ ✅ Already done — notes, revealed flags, session completion, location, and time all persisted via localStorage.

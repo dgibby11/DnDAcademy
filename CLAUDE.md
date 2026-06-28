@@ -1,4 +1,4 @@
-# F.U.C.K.S. Academy — Campaign Dossier
+# TT Adventure Sessionbook
 
 ## Project Summary
 A local, static, single-page web app for running a long-form D&D campaign set at

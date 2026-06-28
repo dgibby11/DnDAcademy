@@ -1,12 +1,12 @@
-# FAIL Academy — Campaign Dossier
+# TT Adventure Sessionbook
 
-A local, static, offline single-page app for running a long-form D&D campaign set at **FAIL Academy** (Faculty of Arms, Inquiry & Lore). The campus map is the centrepiece, but the app is a full DM dossier: a cross-linked, searchable web of typed entities — locations, NPCs, factions, items, creatures, mysteries, and sessions. Clicking a map hotspot or an Index entry opens a styled modal with the entity's content.
+A local, static, offline single-page app for running tabletop RPG campaigns. Each campaign gets its own entity graph — locations, NPCs, factions, items, creatures, mysteries, and sessions — navigable through a 4-quadrant dashboard and searchable index. Clicking any entry opens a styled modal with the entity's content. Built for DMs; runs off a trivial local server.
 
 ## How to run
 
 Double-click **`start-map.bat`**. It launches a tiny local web server (Python) and opens the app at <http://localhost:8000/> in your browser.
 
-- A window titled **"FAIL server"** stays open while the app runs — **close it to stop the server.**
+- A window titled **"TT Adventure Sessionbook"** stays open while the app runs — **close it to stop the server.**
 - Requires Python (the `py` launcher or `python` on PATH).
 
 > **Why a server?** Browsers block local `fetch()` of JSON/HTML over `file://`. The server sidesteps that. It serves only local files — nothing leaves your machine.

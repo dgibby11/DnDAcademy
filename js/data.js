@@ -40,7 +40,7 @@
 
   window.CAMPAIGN = {
     id:           campaignId,
-    name:         'Campaign Dossier',
+    name:         'TT Adventure Sessionbook',
     subtitle:     '',
     regionMapEntity: '',
     rootLocation: 'campus_root',

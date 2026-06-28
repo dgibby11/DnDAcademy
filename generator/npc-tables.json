@@ -1,6 +1,6 @@
 {
   "_comment": [
-    "External NPC generator tables for DnDAcademy.",
+    "External NPC generator tables for TT Adventure Sessionbook.",
     "Drop this file at generator/npc-tables.json and it will be fetched on startup.",
     "",
     "_merge: true  (default) — arrays are appended to the built-in tables.",

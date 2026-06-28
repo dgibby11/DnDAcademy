@@ -1,5 +1,5 @@
 @echo off
-REM start-map.bat — double-click to launch the DnDAcademy campaign dossier.
+REM start-map.bat — double-click to launch TT Adventure Sessionbook.
 REM Runs data integrity tests, starts a local static server, opens the browser.
 REM Close the server window to stop the server.
 
@@ -20,9 +20,9 @@ if %ERRORLEVEL% neq 0 (
 
 REM ── Static server ──────────────────────────────────────────────────────────
 where py >nul 2>&1 && (
-  start "DnDAcademy server" cmd /c "py -m http.server 8000"
+  start "TT Adventure Sessionbook" cmd /c "py -m http.server 8000"
 ) || (
-  start "DnDAcademy server" cmd /c "python -m http.server 8000"
+  start "TT Adventure Sessionbook" cmd /c "python -m http.server 8000"
 )
 
 timeout /t 1 /nobreak >nul
