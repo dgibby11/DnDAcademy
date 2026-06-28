@@ -279,9 +279,8 @@
     hdr.appendChild(el('h2', 'dash-location-title', isRoot ? window.CAMPAIGN.name : loc.name));
 
     const meta = el('div', 'dash-location-meta');
-    const subtitle = window.CAMPAIGN.subtitle || '';
     meta.textContent = isRoot
-      ? (subtitle ? subtitle + ' — select a location to enter it' : 'Select a location to enter it')
+      ? 'Select a location to enter it'
       : (['LOCATION', loc && loc.category].filter(Boolean).join(' · '));
     hdr.appendChild(meta);
 

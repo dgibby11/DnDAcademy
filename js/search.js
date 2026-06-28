@@ -1,22 +1,45 @@
 (function () {
-  const MAX_RESULTS = 12;
+  const MAX_RESULTS = 15;
   let input, results, activeIndex = -1, matches = [];
+
+  // Score an entity against a query. Returns 0 if no match.
+  // Higher score = better match; results are sorted descending.
+  function score(e, q) {
+    const words = q.split(/\s+/).filter(Boolean);
+    const n     = e.name.toLowerCase();
+    const fields = [
+      n,
+      e.type.toLowerCase(),
+      (e.category || '').toLowerCase(),
+      ...(e.tags || []).map(t => t.toLowerCase()),
+    ];
+
+    // All query words must appear somewhere across name/type/category/tags.
+    if (!words.every(w => fields.some(f => f.includes(w)))) return 0;
+
+    if (n === q)                              return 5; // exact name
+    if (n.startsWith(q))                      return 4; // name prefix
+    if (n.includes(q))                        return 3; // name substring
+    if (words.every(w => n.includes(w)))      return 2; // all words in name
+    return 1;                                           // match in other fields
+  }
 
   function buildMatches(query) {
     const q = query.toLowerCase().trim();
     if (!q) return [];
-    return window.ENTITIES.filter(e =>
-      window.App.isVisible(e) && (
-        e.name.toLowerCase().includes(q) ||
-        e.type.toLowerCase().includes(q) ||
-        (e.category || '').toLowerCase().includes(q)
-      )
-    ).slice(0, MAX_RESULTS);
+    return window.ENTITIES
+      .filter(e => window.App.isVisible(e))
+      .map(e => ({ e, s: score(e, q) }))
+      .filter(({ s }) => s > 0)
+      .sort((a, b) => b.s - a.s)
+      .map(({ e }) => e)
+      .slice(0, MAX_RESULTS);
   }
 
   const TYPE_LABELS = {
     reference: 'Ref', location: 'Loc', npc: 'NPC', faction: 'Faction',
     item: 'Item', creature: 'Creature', mystery: 'Mystery', session: 'Session',
+    image: 'Map',
   };
 
   function renderResults() {

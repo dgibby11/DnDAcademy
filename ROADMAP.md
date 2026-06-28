@@ -47,8 +47,8 @@ Auto-detect approach: any multi-roll of d20 shows individual die values side-by-
 
 ## Icebox (easiest → hardest)
 
-- **Remove dashboard subtitle** — strip `campaign.subtitle` (e.g. "Sword Coast — Characters Level 1–5") from the `dash-location-header` meta line; one-line change in `makeHeader()`.
-- **Location bar → dashboard header** — merge location bar into the dash header (back button, time toggle inline); recover ~2rem of vertical space above the panels. Small JS/CSS change.
+- ~~**Remove dashboard subtitle**~~ ✅ Done — stripped from `makeHeader()`; was a one-line fix.
+- ~~**Location bar → dashboard header**~~ ✅ Already done — `#location-bar` no longer exists; back button, time toggle, and Full Entry are all inline in `makeHeader()`.
 - **App rename** — the tool has outgrown the "FAIL Academy" concept and is now a general D&D campaign dossier. Pick a new name; mechanical find/replace across HTML/JS/CSS.
 - **5e-bits API research** — evaluate https://5e-bits.github.io/docs/ for integration opportunities: spell lookup, monster stat blocks, equipment, classes/spells by level. Pure research, no code. Any API use must be gracefully optional (DM explicitly triggers; fails silently offline).
 - **Search improvements** — tag-based filtering, fuzzy match on existing search UI.
