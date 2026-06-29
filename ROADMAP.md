@@ -53,7 +53,7 @@ Auto-detect approach: any multi-roll of d20 shows individual die values side-by-
 - ~~**5e-bits API research**~~ ✅ Done — SRD REST API (dnd5eapi.co) and Open5e are both viable. Most useful endpoint: `/monsters/{index}` for stat blocks. Verdict: low priority — SRD content is thin (no campaign-specific monsters) and offline-first means silent failures during sessions. If implemented, best as an optional "Look up stat block →" button on creature entities. Not worth building until content gaps are felt at the table.
 - ~~**Search improvements**~~ ✅ Done — tag search, multi-word AND matching, score-based ranking.
 - ~~**Persistent DM state**~~ ✅ Already done — notes, revealed flags, session completion, location, and time all persisted via localStorage.
-- **Session runner image panel** — split bottom of session runner into thirds; center panel cycles images (← →) from related image entities. Medium effort.
+- ~~**Session runner image panel**~~ — removed from active icebox. Cold storage: the idea was to split the bottom of the session runner into thirds with a center image cycler. Shelved indefinitely.
 - ~~**Random generator expansion**~~ ✅ Done — added "Tables" third tab with Weather (weighted conditions + detail) and Encounter (4 environments: Road, Wilderness, Town, Dungeon) roll tables.
 - **Color scheme — contrast overhaul** — many backgrounds are too close in color; add more contrast and some lighter surfaces. Review all panel/modal/overlay backgrounds.
 - ~~**Player vs DM view**~~ ✅ Already done — `isVisible()` gates on `visibility:"player"` AND `isRevealed()`; dm-only blocks hidden in player mode; toggle + badge in topbar.
