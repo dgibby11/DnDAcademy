@@ -1581,6 +1581,288 @@ body:not(.dm-on) #modal-dm-footer { display: none; }
   to   { transform: scale(1);    opacity: 1; }
 }
 
+/* ---------- Resources dropdown ---------- */
+#resources-wrap {
+  position: relative;
+}
+
+#resources-menu {
+  position: absolute;
+  top: calc(100% + 5px);
+  right: 0;
+  min-width: 150px;
+  list-style: none;
+  margin: 0;
+  padding: 0.3rem 0;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.65);
+  z-index: 95;
+}
+#resources-menu[hidden] { display: none; }
+
+#resources-menu li button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.45rem 1rem;
+  background: none;
+  border: none;
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+#resources-menu li button:hover:not(:disabled) {
+  background: rgba(201,162,39,0.1);
+  color: var(--gold);
+}
+#resources-menu li button:disabled {
+  color: var(--muted);
+  cursor: default;
+}
+.resources-coming-soon {
+  font-size: 0.7rem;
+  color: var(--muted);
+  margin-left: 0.3rem;
+}
+
+/* ---------- Resource reference modal ---------- */
+#resource-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(6,6,8,0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 110;
+}
+#resource-overlay[hidden] { display: none; }
+
+#resource-modal {
+  display: flex;
+  flex-direction: column;
+  width: 900px;
+  max-width: 100%;
+  max-height: 90vh;
+  background: var(--paper);
+  color: var(--sepia);
+  border-radius: 2px;
+  box-shadow:
+    0 0 0 1px var(--paper-edge),
+    0 4px 0 var(--paper-edge),
+    0 24px 70px rgba(0,0,0,0.65),
+    inset 0 0 60px rgba(120,90,50,0.1);
+}
+
+#resource-modal-header {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-bottom: 2px solid var(--oxblood);
+  background: linear-gradient(180deg, rgba(139,30,30,0.06), transparent);
+}
+#resource-modal-title {
+  margin: 0;
+  font-family: var(--display);
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+}
+#resource-modal-close {
+  background: none; border: none;
+  color: var(--sepia-mut);
+  font-size: 1.4rem; line-height: 1;
+  cursor: pointer;
+  flex: 0 0 auto;
+  padding: 0;
+}
+#resource-modal-close:hover { color: var(--oxblood); }
+
+#resource-search-bar {
+  flex: 0 0 auto;
+  padding: 0.45rem 1rem 0.4rem;
+  border-bottom: 1px solid var(--paper-edge);
+  background: rgba(120,90,50,0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+#resource-search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+#resource-search-input {
+  flex: 1 1 auto;
+  padding: 0.35rem 0.7rem;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--paper-edge);
+  border-radius: 2px;
+  font-family: var(--body);
+  font-size: 0.85rem;
+  color: var(--sepia);
+}
+#resource-search-input:not(:disabled):focus {
+  outline: none;
+  border-color: var(--oxblood);
+}
+#resource-search-input:disabled { opacity: 0.5; cursor: not-allowed; }
+#resource-search-input::placeholder { color: var(--sepia-mut); opacity: 0.7; }
+#resource-class-filter,
+.resource-extra-filter {
+  flex: 0 0 auto;
+  padding: 0.3rem 0.5rem;
+  background: rgba(255,255,255,0.5);
+  border: 1px solid var(--paper-edge);
+  border-radius: 2px;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: var(--sepia);
+  cursor: pointer;
+}
+#resource-class-filter:focus,
+.resource-extra-filter:focus { outline: none; border-color: var(--oxblood); }
+#resource-class-filter[hidden] { display: none; }
+.resource-ritual-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 0 0 auto;
+  font-family: var(--body);
+  font-size: 0.82rem;
+  color: var(--sepia);
+  cursor: pointer;
+  user-select: none;
+}
+.resource-ritual-toggle input { cursor: pointer; accent-color: var(--oxblood); }
+#resource-filter-count {
+  font-size: 0.75rem;
+  color: var(--sepia-mut);
+  font-style: italic;
+  min-height: 1em;
+}
+
+#resource-modal-body {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 0.9rem 1.4rem 1.5rem;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+#resource-modal-body::-webkit-scrollbar-thumb { background: var(--paper-edge); }
+
+.resource-status { color: var(--sepia-mut); font-style: italic; }
+.resource-error  { color: var(--oxblood); }
+
+/* -- Spell content (inside resource modal) -- */
+.spell-level-group { margin-bottom: 0.5rem; }
+
+h2.spell-level-heading {
+  font-family: var(--display);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--oxblood);
+  border-bottom: 1px solid var(--paper-edge);
+  padding-bottom: 0.3rem;
+  margin: 1.4rem 0 0.6rem;
+}
+
+.spell-entry {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid rgba(120,90,50,0.2);
+}
+.spell-entry:last-child { border-bottom: none; }
+
+h3.spell-name {
+  font-family: var(--display);
+  font-size: 0.83rem;
+  letter-spacing: 0.06em;
+  color: var(--sepia);
+  margin: 0 0 0.12rem;
+}
+
+.spell-meta {
+  font-size: 0.77rem;
+  color: var(--sepia-mut);
+  font-style: italic;
+  margin: 0 0 0.35rem;
+}
+.spell-flag {
+  font-style: normal;
+  color: #9a5200;
+  font-size: 0.7rem;
+  margin-left: 0.4rem;
+}
+
+dl.spell-stats {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 0.12rem 0.8rem;
+  font-size: 0.79rem;
+  margin: 0 0 0.5rem;
+  padding: 0.35rem 0.7rem;
+  background: rgba(120,90,50,0.07);
+  border-left: 3px solid var(--sepia-mut);
+  border-radius: 0 3px 3px 0;
+}
+dl.spell-stats dt {
+  color: var(--sepia-mut);
+  font-variant: small-caps;
+  letter-spacing: 0.04em;
+  font-weight: 600;
+}
+dl.spell-stats dd { margin: 0; }
+
+.spell-entry p { margin: 0.25rem 0; }
+
+.spell-upcast {
+  font-size: 0.8rem;
+  color: var(--sepia-mut);
+  margin: 0.35rem 0 0;
+  padding-left: 0.75rem;
+  border-left: 2px solid var(--paper-edge);
+}
+
+/* -- Gods table (inside resource modal) -- */
+.gods-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.gods-table th {
+  font-family: var(--display);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--sepia-mut);
+  border-bottom: 2px solid var(--paper-edge);
+  padding: 0.35rem 0.6rem;
+  text-align: left;
+  white-space: nowrap;
+  user-select: none;
+}
+.gods-th-sortable { cursor: pointer; }
+.gods-th-sortable:hover { color: var(--sepia); }
+.gods-th-sortable::after { content: ''; margin-left: 0.35rem; opacity: 0.35; }
+.gods-th-sortable[data-sort="asc"]::after  { content: '↑'; opacity: 1; }
+.gods-th-sortable[data-sort="desc"]::after { content: '↓'; opacity: 1; }
+.gods-table td {
+  padding: 0.28rem 0.6rem;
+  border-bottom: 1px solid rgba(120,90,50,0.15);
+  vertical-align: top;
+}
+.gods-table tr:last-child td { border-bottom: none; }
+.gods-table tr:hover td { background: rgba(120,90,50,0.07); }
+
 /* ---------- Quick NPC panel ---------- */
 #quick-npc-wrap {
   position: relative;

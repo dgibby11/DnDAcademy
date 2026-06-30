@@ -2,3 +2,6 @@
 # Committing it locally would conflict with API writes from other machines.
 campaign-state.json
 pat.txt
+
+# Claude Code local tooling (worktrees, etc.) — not project content.
+.claude/

@@ -78,9 +78,6 @@
     },
   });
 
-  // The revealed flag is DM tracking only — it does not gate visibility.
-  // isVisible() in data.js already handles DM vs player mode correctly:
-  //   DM view: everything (dm-only + player).
-  //   Player view: only player-visibility entities (dm-only hidden).
-  // The reveal toggle in the modal lets the DM mark what the party has discovered.
+  // isVisible() in data.js: DM sees all; player sees only visibility:"player" AND isRevealed().
+  // The reveal toggle in the modal and the session complete flow set these flags.
 })();
